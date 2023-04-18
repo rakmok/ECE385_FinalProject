@@ -1,33 +1,58 @@
 module dogactualfinal_example (
 	input logic [9:0] DrawX, DrawY,
-	input logic vga_clk, blank, frame_clk,
+	input logic vga_clk, blank, frame_clk, KEY,
 	output logic [3:0] red, green, blue
 );
+//logic flag_b_reset;
+logic [12:0] rom_address_dog, rom_address_peng, rom_address_t_l, rom_address_b, rom_address_t_180, rom_address_b180;
+logic [2:0] rom_q_d, rom_q_p, rom_q_t_l, rom_q_b,rom_q_t_180, rom_q_b180; //addresses, rom
 
-logic [12:0] rom_address_dog, rom_address_peng, rom_address_t_l, rom_address_b, rom_address_t_180;
-logic [2:0] rom_q_d, rom_q_p, rom_q_t_l, rom_q_b,rom_q_t_180;
-
-logic [9:0] b_motion_x, b_pos_x, b_pos_y, b_motion_y;
+logic [9:0] b_motion_x, b_pos_x, b_pos_y, b_motion_y;//bullet motions
+logic [9:0] b180_motion_x, b180_pos_x, b180_pos_y, b180_motion_y;
 
 initial b_motion_x = 1;
-initial b_motion_y = 0;
-initial b_pos_x = 100;
-initial b_pos_y = 200;
+//initial b_motion_y = 0;
+initial b_pos_x = 90;
+initial b_pos_y = 52;
+//initial flag_b_reset = 1;
+//always_ff@ (negedge KEY)
+//begin
+//flag_b_reset <= 0;
+//b_motion_x <= 1;
+//end
+////
+//initial b180_motion_x = 0;
+//initial b180_motion_y = 0;
+//initial b180_pos_x = 100;
+//initial b180_pos_y = 0; //initial positions
+
 logic [3:0] palette_red_dog, palette_green_dog, palette_blue_dog;
 logic [3:0] palette_red_peng, palette_green_peng, palette_blue_peng;
 logic [3:0] palette_red_t_l, palette_green_t_l, palette_blue_t_l;
 logic [3:0] palette_red_t_180, palette_green_t_180, palette_blue_t_180;
-logic [9:0] actlX, actlY, turretX_left, turretY_left, b_x_left, b_y_left, turret_X_right, turret_Y_right;
 logic [3:0] palette_red_b, palette_green_b, palette_blue_b;
-logic flag_p, flag_d, flag_t_l, flag_b, flag_t_180;
+logic [3:0] palette_red_b180, palette_green_b180, palette_blue_b180; //palettes
+
+logic [9:0] actlX, actlY, turretX_left, turretY_left, b_x_left, b_y_left, turret_X_right, turret_Y_right;
+logic [9:0] b180_x_left, b180_y_left; //positions
+
+logic flag_p, flag_d, flag_t_l, flag_b, flag_t_180, flag_b180; //drawing flags
+
+logic flag_b_exist, flag_b180_exist; //exist flags
+
 assign turretX_left = DrawX - 50;
 assign turretY_left = DrawY - 50;
 assign actlX = DrawX-590;
 assign actlY = DrawY-380;
+
 assign b_x_left = DrawX - b_pos_x;
-assign b_y_left = DrawY -b_pos_y;
+assign b_y_left = DrawY - b_pos_y;
+
+assign b180_x_left = DrawX -b180_pos_x;
+assign b180_y_left = DrawY -b180_pos_y;
+ 
 assign turret_X_right = DrawX -550;
-assign turret_Y_right = DrawY - 420;
+assign turret_Y_right = DrawY - 420; //calculations of positions updating
 
 always_comb
 begin
@@ -87,7 +112,7 @@ end
 
 always_comb
 begin
-if(DrawX>b_pos_x-40 && DrawY>b_pos_y-10 && DrawX<b_pos_x && DrawY<b_pos_y)
+if(DrawX>b_pos_x && DrawY>b_pos_y && DrawX<b_pos_x+40 && DrawY<b_pos_y+10 && flag_b_exist==1)
 begin
 rom_address_b= b_x_left+b_y_left*40;
 flag_b = 1;
@@ -99,26 +124,68 @@ flag_b = 0;
 end
 end
 
-//assign rom_address = ((DrawX * 50) / 640) + (((DrawY * 100) / 480) * 50);
-always_ff @(posedge frame_clk)
-begin
 
-if(b_pos_x+8'h28>=670)
+always_comb
 begin
-b_motion_x <= 10'h3FF;
+if(DrawX>b180_pos_x && DrawY>b180_pos_y && DrawX<b180_pos_x+40 && DrawY<b180_pos_y+10 && flag_b180_exist==1)
+begin
+rom_address_b180= b180_x_left+b180_y_left*40;
+flag_b180 = 1;
+end
+else
+begin
+rom_address_b180 = 0;
+flag_b180 = 0;
+end
 end
 
-else if(b_pos_x==40)
+//assign rom_address = ((DrawX * 50) / 640) + (((DrawY * 100) / 480) * 50);
+always_ff @(posedge (frame_clk&(~KEY)))
+begin
+//
+//always_ff @(negedge flag_b_reset)
+//begin
+//b_motion_x <= 1;
+//end
+
+if(b_pos_x+40>=639)
+begin
+//b_motion_x <= 10'h3FF;
+b180_motion_x <= 10'h3FF;
+b_motion_x <= 10'h3FF;
+flag_b_exist <= 0;
+b180_pos_x <= b_pos_x;
+b180_pos_y <= b_pos_y;
+flag_b180_exist <= 1;
+end
+
+else if(b180_pos_x==10)
 begin
 b_motion_x <= 10'h001;
+b180_motion_x <= 10'h001;
+flag_b_exist <= 1;
+b_pos_x <= b180_pos_x;
+b_pos_y <= b180_pos_y;
+flag_b180_exist <= 0;
 end
 
 else
 begin
+//if(KEY==0)
+//begin
+//b_motion_x <= 1;
+//end
+//else
+//begin
 b_motion_x <= b_motion_x;
+b180_motion_x <= b180_motion_x;
+//end
+//flag_b180_exist <= flag_b180_exist;
+//flag_b_exist <= flag_b_exist;
 end
 
 b_pos_x <= b_pos_x + b_motion_x;
+b180_pos_x<=b180_pos_x + b180_motion_x;
 
 end
 //always_ff @ (posedge Reset or posedge frame_clk )
@@ -149,30 +216,35 @@ begin
 	green <= 4'h0;
 	blue <= 4'h0;
 end
-else if(flag_b) begin
+else if(flag_b&&(palette_red_b !=4'hF && palette_green_b !=4'hF && palette_blue_b != 4'hF)) begin
 		red <= palette_red_b;
 		green <= palette_green_b;
 		blue <= palette_blue_b;
 end
+else if(flag_b180&&(palette_red_b180 !=4'hF && palette_green_b180 !=4'hF && palette_blue_b180 != 4'hF)) begin
+		red <= palette_red_b180;
+		green <= palette_green_b180;
+		blue <= palette_blue_b180;
+end
 	
-	else if (flag_d) begin
+	else if (flag_d&&(palette_red_dog !=4'hF && palette_green_dog !=4'hF && palette_blue_dog != 4'hF)) begin
 		red <= palette_red_dog;
 		green <= palette_green_dog;
 		blue <= palette_blue_dog;
 	end
-	else if (flag_p)
+	else if (flag_p&&(palette_red_peng !=4'hF && palette_green_peng !=4'hF && palette_blue_peng != 4'hF))
 	begin
 			red <= palette_red_peng;
 		green <= palette_green_peng;
 		blue <= palette_blue_peng;
 	end
-		else if (flag_t_l)
+		else if (flag_t_l&&(palette_red_t_l !=4'hF && palette_green_t_l !=4'hF && palette_blue_t_l != 4'hF))
 	begin
 			red <= palette_red_t_l;
 		green <= palette_green_t_l;
 		blue <= palette_blue_t_l;
 	end
-	else if(flag_t_180)
+	else if(flag_t_180&&(palette_red_t_180 !=4'hF && palette_green_t_180 !=4'hF && palette_blue_t_180 != 4'hF))
 	begin
 				red <= palette_red_t_180;
 		green <= palette_green_t_180;
@@ -180,9 +252,9 @@ end
 	end
 	else
 	begin
-	red <= 4'hF;
-	green <= 4'hF;
-	blue <= 4'hF;
+	red <= 4'h0;
+	green <= 4'h0;
+	blue <= 4'h0;
 	end
 end
 turret_rom turret_rom (
@@ -247,5 +319,18 @@ turret_180_palette turret_180_palette (
 	.green (palette_green_t_180),
 	.blue  (palette_blue_t_180)
 );
+projectile_180_rom projectile_180_rom (
+	.clock   (vga_clk),
+	.address (rom_address_b180),
+	.q       (rom_q_b180)
+);
+
+projectile_180_palette projectile_180_palette (
+	.index (rom_q_b180),
+	.red   (palette_red_b180),
+	.green (palette_green_b180),
+	.blue  (palette_blue_b180)
+);
+
 
 endmodule

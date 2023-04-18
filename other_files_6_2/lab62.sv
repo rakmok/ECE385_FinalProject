@@ -172,7 +172,7 @@ vga_controller vga  (.Clk(MAX10_CLK1_50) ,       // 50 MHz clock
 								              .DrawY(drawysig) );   // vertical coordinate
 //color_mapper color(.BallX(ballxsig), .BallY(ballysig), .DrawX(drawxsig), .DrawY(drawysig), .Ball_size(ballsizesig),
 //                       .* );
-dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
+dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .KEY(KEY[1]), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
 
 );
 
