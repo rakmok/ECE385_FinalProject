@@ -84643,7 +84643,7 @@ DrawY[9] => LessThan9.IN1
 DrawY[9] => LessThan11.IN12
 DrawY[9] => LessThan13.IN1
 DrawY[9] => LessThan15.IN12
-vga_clk => vga_clk.IN6
+vga_clk => vga_clk.IN7
 blank => red.OUTPUTSELECT
 blank => red.OUTPUTSELECT
 blank => red.OUTPUTSELECT
@@ -84656,8 +84656,9 @@ blank => blue.OUTPUTSELECT
 blank => blue.OUTPUTSELECT
 blank => blue.OUTPUTSELECT
 blank => blue.OUTPUTSELECT
-frame_clk => always6.IN0
-KEY => always6.IN1
+frame_clk => always7.IN1
+KEY => flag_b_reset.CLK
+Reset => ~NO_FANOUT~
 red[0] <= red[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 red[1] <= red[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 red[2] <= red[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -84738,23 +84739,27 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab62|dogactualfinal_example:dog|dogactualfinal_palette:dogactualfinal_palette
-index[0] => Decoder0.IN2
-index[0] => Decoder1.IN1
+index[0] => Decoder1.IN2
+index[0] => Decoder2.IN1
+index[0] => green[3].DATAIN
 index[1] => Decoder0.IN1
+index[1] => Decoder1.IN1
 index[2] => Decoder0.IN0
 index[2] => Decoder1.IN0
-red[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-red[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-red[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-red[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-green[0] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-green[1] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-green[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-green[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-blue[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-blue[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-blue[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-blue[3] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+index[2] => Decoder2.IN0
+index[2] => green[1].DATAIN
+red[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+red[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+red[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+red[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+green[1] <= index[2].DB_MAX_OUTPUT_PORT_TYPE
+green[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[3] <= index[0].DB_MAX_OUTPUT_PORT_TYPE
+blue[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+blue[1] <= Decoder2.DB_MAX_OUTPUT_PORT_TYPE
+blue[2] <= concat.DB_MAX_OUTPUT_PORT_TYPE
+blue[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab62|dogactualfinal_example:dog|penguin_final_rom:penguin_final_rom
@@ -84780,23 +84785,23 @@ q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab62|dogactualfinal_example:dog|penguin_final_palette:penguin_final_palette
-index[0] => Decoder0.IN2
-index[0] => Decoder1.IN1
-index[1] => Decoder0.IN1
-index[2] => Decoder0.IN0
+index[0] => Decoder0.IN1
+index[0] => Decoder1.IN2
+index[1] => Decoder0.IN0
+index[1] => Decoder1.IN1
 index[2] => Decoder1.IN0
-red[0] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-red[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-red[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-red[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-green[0] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-green[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-green[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-green[3] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-blue[0] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
-blue[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-blue[3] <= concat.DB_MAX_OUTPUT_PORT_TYPE
+red[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+red[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+red[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+red[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+green[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+green[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+green[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+blue[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+blue[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+blue[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+blue[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab62|dogactualfinal_example:dog|rocketforfinal_rom:rocketforfinal_rom
@@ -84910,5 +84915,51 @@ blue[0] <= <VCC>
 blue[1] <= index[2].DB_MAX_OUTPUT_PORT_TYPE
 blue[2] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab62|dogactualfinal_example:dog|starrynight_rom:starrynight_rom
+clock => q[0]~reg0.CLK
+clock => q[1]~reg0.CLK
+clock => q[2]~reg0.CLK
+address[0] => memory.RADDR
+address[1] => memory.RADDR1
+address[2] => memory.RADDR2
+address[3] => memory.RADDR3
+address[4] => memory.RADDR4
+address[5] => memory.RADDR5
+address[6] => memory.RADDR6
+address[7] => memory.RADDR7
+address[8] => memory.RADDR8
+address[9] => memory.RADDR9
+address[10] => memory.RADDR10
+address[11] => memory.RADDR11
+address[12] => memory.RADDR12
+address[13] => memory.RADDR13
+address[14] => memory.RADDR14
+address[15] => memory.RADDR15
+address[16] => memory.RADDR16
+address[17] => memory.RADDR17
+address[18] => memory.RADDR18
+q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab62|dogactualfinal_example:dog|starrynight_palette:starrynight_palette
+index[0] => Decoder0.IN2
+index[1] => Decoder0.IN1
+index[2] => Decoder0.IN0
+red[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+red[1] <= concat.DB_MAX_OUTPUT_PORT_TYPE
+red[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+red[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+green[1] <= concat.DB_MAX_OUTPUT_PORT_TYPE
+green[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+green[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+blue[0] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+blue[1] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+blue[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 
 

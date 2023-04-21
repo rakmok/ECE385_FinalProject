@@ -174,7 +174,7 @@ vga_controller vga  (.Clk(MAX10_CLK1_50) ,       // 50 MHz clock
 //                       .* );
 dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .KEY(KEY[1]), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
 
-);
+, .Reset(Reset_h));
 
 
 //ball ballmove( .Reset(Reset_h), .frame_clk(VGA_VS),
