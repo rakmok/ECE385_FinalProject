@@ -14,13 +14,14 @@ begin
 flag_b_reset <= 0;
 //flag_b_exist <= 1;
 end
-logic [12:0] rom_address_dog, rom_address_peng, rom_address_t_l, rom_address_b, rom_address_t_180, rom_address_b180,rom_address_s;
+logic [12:0] rom_address_dog, rom_address_peng, rom_address_t_l, rom_address_b, rom_address_t_180, rom_address_b180;
+logic [18:0] rom_address_s;
 logic [2:0] rom_q_d, rom_q_p, rom_q_t_l, rom_q_b,rom_q_t_180, rom_q_b180, rom_q_s; //addresses, rom
 
 logic [9:0] b_motion_x, b_pos_x, b_pos_y, b_motion_y;//bullet motions
 logic [9:0] b180_motion_x, b180_pos_x, b180_pos_y, b180_motion_y;
 
-//assign rom_address_s = (DrawX) + (DrawY*640);
+assign rom_address_s = (DrawX) + (DrawY*640);
 
 //initial b_motion_y = 0;
 initial b_pos_x = 90;
