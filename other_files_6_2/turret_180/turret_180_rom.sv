@@ -4,7 +4,7 @@ module turret_180_rom (
 	output logic [2:0] q
 );
 
-logic [2:0] memory [0:1199] /* synthesis ram_init_file = "./turret_180/turret_180.mif" */;
+logic [2:0] memory [0:1461] /* synthesis ram_init_file = "./turret_180/turret_180.mif" */;
 
 always_ff @ (posedge clock) begin
 	q <= memory[address];

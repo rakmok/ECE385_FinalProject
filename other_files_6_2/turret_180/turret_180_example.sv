@@ -9,7 +9,7 @@ logic [2:0] rom_q;
 
 logic [3:0] palette_red, palette_green, palette_blue;
 
-assign rom_address = ((DrawX * 40) / 640) + (((DrawY * 30) / 480) * 40);
+assign rom_address = ((DrawX * 43) / 640) + (((DrawY * 34) / 480) * 43);
 
 always_ff @ (posedge vga_clk) begin
 	red <= 4'h0;
