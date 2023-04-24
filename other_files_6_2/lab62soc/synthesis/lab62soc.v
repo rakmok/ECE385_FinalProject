@@ -5,11 +5,14 @@
 `timescale 1 ps / 1 ps
 module lab62soc (
 		input  wire        clk_clk,                        //                     clk.clk
+		input  wire        clk_0_clk,                      //                   clk_0.clk
+		output wire        clk_1_clk_clk,                  //               clk_1_clk.clk
 		output wire [15:0] hex_digits_export,              //              hex_digits.export
 		input  wire [1:0]  key_external_connection_export, // key_external_connection.export
 		output wire [7:0]  keycode_export,                 //                 keycode.export
 		output wire [13:0] leds_export,                    //                    leds.export
 		input  wire        reset_reset_n,                  //                   reset.reset_n
+		input  wire        reset_0_reset_n,                //                 reset_0.reset_n
 		output wire        sdram_clk_clk,                  //               sdram_clk.clk
 		output wire [12:0] sdram_wire_addr,                //              sdram_wire.addr
 		output wire [1:0]  sdram_wire_ba,                  //                        .ba
@@ -562,5 +565,7 @@ module lab62soc (
 		.reset_in15     (1'b0),                                   // (terminated)
 		.reset_req_in15 (1'b0)                                    // (terminated)
 	);
+
+	assign clk_1_clk_clk = clk_0_clk;
 
 endmodule

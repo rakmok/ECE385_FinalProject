@@ -5,6 +5,7 @@
 		.keycode_export                 (<connected-to-keycode_export>),                 //                 keycode.export
 		.leds_export                    (<connected-to-leds_export>),                    //                    leds.export
 		.reset_reset_n                  (<connected-to-reset_reset_n>),                  //                   reset.reset_n
+		.sdram_clk_clk                  (<connected-to-sdram_clk_clk>),                  //               sdram_clk.clk
 		.sdram_wire_addr                (<connected-to-sdram_wire_addr>),                //              sdram_wire.addr
 		.sdram_wire_ba                  (<connected-to-sdram_wire_ba>),                  //                        .ba
 		.sdram_wire_cas_n               (<connected-to-sdram_wire_cas_n>),               //                        .cas_n
@@ -21,6 +22,8 @@
 		.usb_gpx_export                 (<connected-to-usb_gpx_export>),                 //                 usb_gpx.export
 		.usb_irq_export                 (<connected-to-usb_irq_export>),                 //                 usb_irq.export
 		.usb_rst_export                 (<connected-to-usb_rst_export>),                 //                 usb_rst.export
-		.sdram_clk_clk                  (<connected-to-sdram_clk_clk>)                   //               sdram_clk.clk
+		.clk_0_clk                      (<connected-to-clk_0_clk>),                      //                   clk_0.clk
+		.reset_0_reset_n                (<connected-to-reset_0_reset_n>),                //                 reset_0.reset_n
+		.clk_1_clk_clk                  (<connected-to-clk_1_clk_clk>)                   //               clk_1_clk.clk
 	);
 

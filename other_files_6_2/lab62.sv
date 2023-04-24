@@ -58,7 +58,7 @@ module lab62 (
 
 
 
-logic Reset_h, vssig, blank, sync, VGA_Clk;
+logic Reset_h, vssig, blank, sync, VGA_Clk, turret_clk;
 
 
 //=======================================================
@@ -122,6 +122,7 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	
 	lab62soc u0 (
 		.clk_clk                           (MAX10_CLK1_50),  //clk.clk
+		.clk_1_clk_clk (turret_clk),
 		.reset_reset_n                     (1'b1),           //reset.reset_n
 		.altpll_0_locked_conduit_export    (),               //altpll_0_locked_conduit.export
 		.altpll_0_phasedone_conduit_export (),               //altpll_0_phasedone_conduit.export
@@ -172,7 +173,7 @@ vga_controller vga  (.Clk(MAX10_CLK1_50) ,       // 50 MHz clock
 								              .DrawY(drawysig) );   // vertical coordinate
 //color_mapper color(.BallX(ballxsig), .BallY(ballysig), .DrawX(drawxsig), .DrawY(drawysig), .Ball_size(ballsizesig),
 //                       .* );
-dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .KEY(KEY[1]), .keycode(keycode), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
+dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .turret_clk(turret_clk), .KEY(KEY[1]), .keycode(keycode), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
 
 , .Reset(Reset_h));
 

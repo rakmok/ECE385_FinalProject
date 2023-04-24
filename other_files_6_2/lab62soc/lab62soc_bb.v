@@ -6,6 +6,7 @@ module lab62soc (
 	keycode_export,
 	leds_export,
 	reset_reset_n,
+	sdram_clk_clk,
 	sdram_wire_addr,
 	sdram_wire_ba,
 	sdram_wire_cas_n,
@@ -22,7 +23,9 @@ module lab62soc (
 	usb_gpx_export,
 	usb_irq_export,
 	usb_rst_export,
-	sdram_clk_clk);	
+	clk_0_clk,
+	reset_0_reset_n,
+	clk_1_clk_clk);	
 
 	input		clk_clk;
 	output	[15:0]	hex_digits_export;
@@ -30,6 +33,7 @@ module lab62soc (
 	output	[7:0]	keycode_export;
 	output	[13:0]	leds_export;
 	input		reset_reset_n;
+	output		sdram_clk_clk;
 	output	[12:0]	sdram_wire_addr;
 	output	[1:0]	sdram_wire_ba;
 	output		sdram_wire_cas_n;
@@ -46,5 +50,7 @@ module lab62soc (
 	input		usb_gpx_export;
 	input		usb_irq_export;
 	output		usb_rst_export;
-	output		sdram_clk_clk;
+	input		clk_0_clk;
+	input		reset_0_reset_n;
+	output		clk_1_clk_clk;
 endmodule
