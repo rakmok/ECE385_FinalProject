@@ -1,5 +1,5 @@
 Flow report for adder2
-Sat Apr 22 18:52:09 2023
+Sun Apr 23 20:30:07 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,20 +40,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Apr 22 18:52:09 2023       ;
+; Flow Status                        ; Successful - Sun Apr 23 20:30:07 2023       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; adder2                                      ;
 ; Top-level Entity Name              ; lab62                                       ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 6,057 / 49,760 ( 12 % )                     ;
-;     Total combinational functions  ; 5,431 / 49,760 ( 11 % )                     ;
-;     Dedicated logic registers      ; 2,466 / 49,760 ( 5 % )                      ;
-; Total registers                    ; 2535                                        ;
+; Total logic elements               ; 5,723 / 49,760 ( 12 % )                     ;
+;     Total combinational functions  ; 5,123 / 49,760 ( 10 % )                     ;
+;     Dedicated logic registers      ; 2,473 / 49,760 ( 5 % )                      ;
+; Total registers                    ; 2542                                        ;
 ; Total pins                         ; 141 / 360 ( 39 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 947,992 / 1,677,312 ( 57 % )                ;
+; Total memory bits                  ; 962,992 / 1,677,312 ( 57 % )                ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/22/2023 18:50:12 ;
+; Start date & time ; 04/23/2023 20:28:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; adder2              ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+------------------------------------------------------------+---------------+-------------------+----------------+
 ; Assignment Name                     ; Value                                                      ; Default Value ; Entity Name       ; Section Id     ;
 +-------------------------------------+------------------------------------------------------------+---------------+-------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 79846613904724.168220741115724                             ; --            ; --                ; --             ;
+; COMPILER_SIGNATURE_ID               ; 79846613904724.168229969004292                             ; --            ; --                ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                                          ; --            ; --                ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)                            ; <None>        ; --                ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                                       ; --            ; --                ; eda_simulation ;
@@ -101,7 +101,7 @@ refer to the applicable agreement for further details.
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                               ; --            ; --                ; --             ;
 ; SLD_FILE                            ; lab62soc/synthesis/lab62soc.regmap                         ; --            ; --                ; --             ;
 ; SLD_FILE                            ; lab62soc/synthesis/lab62soc.debuginfo                      ; --            ; --                ; --             ;
-; SLD_INFO                            ; QSYS_NAME lab62soc HAS_SOPCINFO 1 GENERATION_ID 1681771424 ; --            ; lab62soc          ; --             ;
+; SLD_INFO                            ; QSYS_NAME lab62soc HAS_SOPCINFO 1 GENERATION_ID 1682297885 ; --            ; lab62soc          ; --             ;
 ; SOPCINFO_FILE                       ; lab62soc/synthesis/../../lab62soc.sopcinfo                 ; --            ; --                ; --             ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                         ; --            ; --                ; --             ;
 ; TOP_LEVEL_ENTITY                    ; lab62                                                      ; adder2        ; --                ; --             ;
@@ -113,13 +113,13 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:51     ; 1.0                     ; 5060 MB             ; 00:01:05                           ;
-; Fitter               ; 00:00:33     ; 1.5                     ; 5881 MB             ; 00:01:01                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4722 MB             ; 00:00:04                           ;
-; Power Analyzer       ; 00:00:07     ; 2.0                     ; 4982 MB             ; 00:00:13                           ;
-; Timing Analyzer      ; 00:00:07     ; 2.3                     ; 4954 MB             ; 00:00:13                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4772 MB             ; 00:00:03                           ;
-; Total                ; 00:01:44     ; --                      ; --                  ; 00:02:39                           ;
+; Analysis & Synthesis ; 00:00:53     ; 1.0                     ; 5067 MB             ; 00:01:10                           ;
+; Fitter               ; 00:00:31     ; 1.5                     ; 5872 MB             ; 00:01:00                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4724 MB             ; 00:00:04                           ;
+; Power Analyzer       ; 00:00:06     ; 2.0                     ; 4977 MB             ; 00:00:13                           ;
+; Timing Analyzer      ; 00:00:07     ; 2.3                     ; 4950 MB             ; 00:00:13                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4766 MB             ; 00:00:03                           ;
+; Total                ; 00:01:45     ; --                      ; --                  ; 00:02:43                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
