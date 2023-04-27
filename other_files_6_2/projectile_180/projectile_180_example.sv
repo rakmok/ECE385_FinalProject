@@ -4,12 +4,12 @@ module projectile_180_example (
 	output logic [3:0] red, green, blue
 );
 
-logic [8:0] rom_address;
+logic [10:0] rom_address;
 logic [2:0] rom_q;
 
 logic [3:0] palette_red, palette_green, palette_blue;
 
-assign rom_address = ((DrawX * 40) / 640) + (((DrawY * 10) / 480) * 40);
+assign rom_address = ((DrawX * 40) / 640) + (((DrawY * 40) / 480) * 40);
 
 always_ff @ (posedge vga_clk) begin
 	red <= 4'h0;

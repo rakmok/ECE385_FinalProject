@@ -1,4 +1,16 @@
 
+State Machine - |lab62|dogactualfinal_example:dog|ISDU:ISDU|State
+Name State.T300 State.T315 State.T330 State.T90 State.T60 State.T45 State.T30 State.T0 State.T270 
+State.T0 0 0 0 0 0 0 0 0 0 
+State.T30 0 0 0 0 0 0 1 1 0 
+State.T45 0 0 0 0 0 1 0 1 0 
+State.T60 0 0 0 0 1 0 0 1 0 
+State.T90 0 0 0 1 0 0 0 1 0 
+State.T330 0 0 1 0 0 0 0 1 0 
+State.T315 0 1 0 0 0 0 0 1 0 
+State.T300 1 0 0 0 0 0 0 1 0 
+State.T270 0 0 0 0 0 0 0 1 1 
+
 State Machine - |lab62|lab62soc:u0|lab62soc_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 

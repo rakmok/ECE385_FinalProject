@@ -1,12 +1,12 @@
-Power Analyzer Status : Successful - Mon Apr 24 16:20:30 2023
+Power Analyzer Status : Successful - Wed Apr 26 19:56:15 2023
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : adder2
 Top-level Entity Name : lab62
 Family : MAX 10
 Device : 10M50DAF484C7G
 Power Models : Final
-Total Thermal Power Dissipation : 205.38 mW
-Core Dynamic Thermal Power Dissipation : 86.58 mW
+Total Thermal Power Dissipation : 204.57 mW
+Core Dynamic Thermal Power Dissipation : 85.74 mW
 Core Static Thermal Power Dissipation : 96.64 mW
-I/O Thermal Power Dissipation : 22.16 mW
+I/O Thermal Power Dissipation : 22.19 mW
 Power Estimation Confidence : Low: user provided insufficient toggle rate data
