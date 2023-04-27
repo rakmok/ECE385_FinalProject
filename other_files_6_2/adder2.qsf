@@ -439,6 +439,15 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
 set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE 12.5%
+set_global_assignment -name SYSTEMVERILOG_FILE turret_330/turret_330_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_330/turret_330_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_330/turret_330_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE deflector_120/deflector_120_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE deflector_120/deflector_120_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE deflector_120/deflector_120_example.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_180/projectile_180_rom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_180/projectile_180_palette.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_180/projectile_180_example.sv
@@ -511,9 +520,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE projectile_0/projectile_0_example
 set_global_assignment -name SYSTEMVERILOG_FILE deflector/deflector_rom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE deflector/deflector_palette.sv
 set_global_assignment -name SYSTEMVERILOG_FILE deflector/deflector_example.sv
-set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_rom.sv
-set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_palette.sv
-set_global_assignment -name SYSTEMVERILOG_FILE turret_45/turret_45_example.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_45/projectile_45_rom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_45/projectile_45_palette.sv
 set_global_assignment -name SYSTEMVERILOG_FILE projectile_45/projectile_45_example.sv

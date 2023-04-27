@@ -4,6 +4,8 @@ module dogactualfinal_example (
 	output logic [3:0] red, green, blue
 );
 
+logic negedge_vga_clk;
+assign negedge_vga_clk = ~vga_clk;
 
 logic flag_b_reset; //reset flag for bullet (starting)
 initial flag_b_reset = 1;
@@ -19,9 +21,8 @@ initial b_l_motion_x = 2;
 
 logic flag_t_l_90_exist, flag_t_l_60_exist,flag_t_l_45_exist,flag_t_l_30_exist,flag_t_l_0_exist,
 flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist;
-logic [3:0] turret_l;
 
-initial turret_l = 4'b0100;
+
 							  
 always_ff@ (negedge KEY)
 begin
@@ -40,7 +41,6 @@ ISDU ISDU ( .Clk(frame_clk),  .Reset(flag_b_reset), .*);
 //turret_l <= turret_l + (4'b0001);
 //end
 //end
-
 
 //always_comb
 //begin
@@ -125,7 +125,11 @@ logic [10:0] rom_address_def_315;
 
 logic [18:0] rom_address_s; //background sprites
 
-logic [2:0] rom_q_d, rom_q_p, rom_q_t_l,  rom_q_s, rom_def_315, rom_q_detect, rom_q_t_r_180; //output addresses, rom
+logic [2:0] rom_q_d, rom_q_p, rom_q_t_l,  rom_q_s, rom_def_315, rom_q_detect; //output addresses, rom
+
+logic [2:0] rom_q_t_l_0, rom_q_t_l_30, rom_q_t_l_45, rom_q_t_l_60, rom_q_t_l_90, rom_q_t_l_330 , rom_q_t_l_315, rom_q_t_l_300, rom_q_t_l_270;
+
+logic [2:0] rom_q_t_r_90, rom_q_t_r_120, rom_q_t_r_135, rom_q_t_r_150, rom_q_t_r_180, rom_q_t_r_210 , rom_q_t_r_225, rom_q_t_r_240, rom_q_t_r_270;
 
 logic [2:0] rom_q_b_l_0, rom_q_b_l_15, rom_q_b_l_30, rom_q_b_l_45, rom_q_b_l_60, rom_q_b_l_75, rom_q_b_l_90, rom_q_b_l_105, rom_q_b_l_120, rom_q_b_l_135,
 rom_q_b_l_150, rom_q_b_l_165, rom_q_b_l_180, rom_q_b_l_195, rom_q_b_l_210, rom_q_b_l_225, rom_q_b_l_240, rom_q_b_l_255, rom_q_b_l_270, rom_q_b_l_285,
@@ -143,12 +147,34 @@ assign rom_address_s = (DrawX) + (DrawY*640); //rom address for background assig
 
 logic [3:0] palette_red_dog, palette_green_dog, palette_blue_dog; //palettes
 logic [3:0] palette_red_peng, palette_green_peng, palette_blue_peng;
+
+
+//palettes for left turret
 logic [3:0] palette_red_t_l_0, palette_green_t_l_0, palette_blue_t_l_0;
+logic [3:0] palette_red_t_l_30, palette_green_t_l_30, palette_blue_t_l_30;
 logic [3:0] palette_red_t_l_45, palette_green_t_l_45, palette_blue_t_l_45;
-logic [3:0] palette_red_t_r_180, palette_green_t_r_180, palette_blue_t_r_180;
+logic [3:0] palette_red_t_l_60, palette_green_t_l_60, palette_blue_t_l_60;
+logic [3:0] palette_red_t_l_90, palette_green_t_l_90, palette_blue_t_l_90;
+logic [3:0] palette_red_t_l_330, palette_green_t_l_330, palette_blue_t_l_330;
+logic [3:0] palette_red_t_l_315, palette_green_t_l_315, palette_blue_t_l_315;
+logic [3:0] palette_red_t_l_300, palette_green_t_l_300, palette_blue_t_l_300;
+logic [3:0] palette_red_t_l_270, palette_green_t_l_270, palette_blue_t_l_270;
+
 logic [3:0] palette_red_s, palette_green_s, palette_blue_s;
 logic [3:0] palette_red_def_315, palette_green_def_315, palette_blue_def_315;
 logic [3:0] palette_red_detect, palette_green_detect, palette_blue_detect;
+
+//palettes for right turret
+
+logic [3:0] palette_red_t_r_90, palette_green_t_r_90, palette_blue_t_r_90;
+logic [3:0] palette_red_t_r_120, palette_green_t_r_120, palette_blue_t_r_120;
+logic [3:0] palette_red_t_r_135, palette_green_t_r_135, palette_blue_t_r_135;
+logic [3:0] palette_red_t_r_150, palette_green_t_r_150, palette_blue_t_r_150;
+logic [3:0] palette_red_t_r_180, palette_green_t_r_180, palette_blue_t_r_180;
+logic [3:0] palette_red_t_r_210, palette_green_t_r_210, palette_blue_t_r_210;
+logic [3:0] palette_red_t_r_225, palette_green_t_r_225, palette_blue_t_r_225;
+logic [3:0] palette_red_t_r_240, palette_green_t_r_240, palette_blue_t_r_240;
+logic [3:0] palette_red_t_r_270, palette_green_t_r_270, palette_blue_t_r_270;
 
 //palettes for projectiles
 logic [3:0] palette_red_b_l_0, palette_green_b_l_0, palette_blue_b_l_0; //0
@@ -181,9 +207,11 @@ logic [9:0] b180_x_left, b180_y_left; //positions
 logic [9:0] def_315_x, def_315_y;
 logic [9:0] def_detection_x, def_detection_y;
 
-logic flag_t_l_45;
+logic flag_t_l_0, flag_t_l_30, flag_t_l_45, flag_t_l_60, flag_t_l_90, flag_t_l_330, flag_t_l_315, flag_t_l_300, flag_t_l_270; //drawing flags for left turret
 
-logic flag_p, flag_d, flag_t_l_0, flag_b_l_0, flag_t_r_180, flag_b_l_180, flag_def_315; //drawing flags
+logic flag_t_r_90, flag_t_r_120, flag_t_r_135, flag_t_r_150, flag_t_r_180, flag_t_r_210, flag_t_r_225, flag_t_r_240, flag_t_r_270; //drawing flags for right turret
+
+logic flag_p, flag_d, flag_b_l_0, flag_b_l_180, flag_def_315; //drawing flags
 
 logic flag_b_exist, flag_b180_exist; //exist flags
 
@@ -193,7 +221,7 @@ assign def_315_y = DrawY-50;
 
 always_ff @(posedge frame_clk)
 begin
-if(b_l_pos_x + 40 < 590)
+if(b_l_pos_x + 35 < 590)
 begin
 def_detection_x = 1;
 def_detection_y = 0;
@@ -263,6 +291,20 @@ else
 begin
 rom_address_t_l_0 = 0;
 flag_t_l_0 = 0;
+end
+end
+
+always_comb //turret left 330 drawing
+begin
+if((turretX_left<43 && turretY_left<34&&flag_t_l_330_exist==1))
+begin
+rom_address_t_l_330 = turretX_left+turretY_left*43;
+flag_t_l_330 = 1;
+end
+else
+begin
+rom_address_t_l_330 = 0;
+flag_t_l_330 = 0;
 end
 end
 
@@ -421,15 +463,27 @@ always_ff @ (posedge vga_clk) begin
 
 	else if (flag_d&&(palette_red_dog !=4'hF && palette_green_dog !=4'h0 && palette_blue_dog != 4'hF)) 
 	begin
+	if(palette_red_dog == 4'hC && palette_green_dog == 4'h2 && palette_blue_dog == 4'hA)
+	begin
+	end
+	else
+	begin
 		red <= palette_red_dog;
 		green <= palette_green_dog;
 		blue <= palette_blue_dog;
 	end
+	end
 	else if (flag_p&&(palette_red_peng != 4'hF && palette_green_peng !=4'h0 && palette_blue_peng != 4'hF))
+	begin
+	if(palette_red_peng == 4'hD && palette_green_peng == 4'h3 && palette_blue_peng == 4'hC)
+	begin
+	end
+	else
 	begin
 		red <= palette_red_peng;
 		green <= palette_green_peng;
 		blue <= palette_blue_peng;
+	end
 	end
 	else if (flag_t_l_0&&(palette_red_t_l_0 !=4'hF && palette_green_t_l_0 !=4'h0 && palette_blue_t_l_0 != 4'hF))
 	begin
@@ -442,6 +496,12 @@ always_ff @ (posedge vga_clk) begin
 		red <= palette_red_t_l_45;
 		green <= palette_green_t_l_45;
 		blue <= palette_blue_t_l_45;
+	end
+	else if (flag_t_l_330&&(palette_red_t_l_330 !=4'hF && palette_green_t_l_330 !=4'h0 && palette_blue_t_l_330 != 4'hF))
+	begin
+		red <= palette_red_t_l_330;
+		green <= palette_green_t_l_330;
+		blue <= palette_blue_t_l_330;
 	end
 	else if(flag_t_r_180&&(palette_red_t_r_180 !=4'hF && palette_green_t_r_180 !=4'h0 && palette_blue_t_r_180 != 4'hF))
 	begin
@@ -458,7 +518,7 @@ always_ff @ (posedge vga_clk) begin
 end
 
 turret_rom turret_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_t_l_0),
 	.q       (rom_q_t_l)
 );
@@ -470,7 +530,7 @@ turret_palette turret_palette (
 	.blue  (palette_blue_t_l_0)
 );
 dogactualfinal_rom dogactualfinal_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_dog),
 	.q       (rom_q_d)
 );
@@ -483,7 +543,7 @@ dogactualfinal_palette dogactualfinal_palette (
 );
 
 penguin_final_rom penguin_final_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_peng),
 	.q       (rom_q_p)
 );
@@ -496,7 +556,7 @@ penguin_final_palette penguin_final_palette (
 );
 
 turret_180_rom turret_180_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_t_r_180),
 	.q       (rom_q_t_r_180)
 );
@@ -509,7 +569,7 @@ turret_180_palette turret_180_palette (
 );
 
 turret_45_rom turret_45_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_t_l_45),
 	.q       (rom_q_t_l_45)
 );
@@ -521,8 +581,9 @@ turret_45_palette turret_45_palette (
 	.blue  (palette_blue_t_l_45)
 );
 
+
 deflector_rom deflector_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_def_315),
 	.q       (rom_q_def_315),
 	.address2(rom_address_detect),
@@ -539,9 +600,28 @@ deflector_palette deflector_palette (
 	.green2(palette_green_detect),
 	.blue2(palette_blue_detect)
 );
+//deflector_120_rom deflector_120_rom (
+//	.clock   (vga_clk),
+//	.address (rom_address_def_315),
+//	.q       (rom_q_def_315),
+//	.address2(rom_address_detect),
+//	.q2(rom_q_detect)
+//);
+//
+//deflector_120_palette deflector_120_palette (
+//	.index (rom_q_def_315),
+//	.index2 (rom_q_detect),
+//	.red   (palette_red_def_315),
+//	.green (palette_green_def_315),
+//	.blue  (palette_blue_def_315),
+//	.red2(palette_red_detect),
+//	.green2(palette_green_detect),
+//	.blue2(palette_blue_detect)
+//);
+
 
 starrynight_rom starrynight_rom (
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_s),
 	.q       (rom_q_s)
 );
@@ -555,7 +635,7 @@ starrynight_palette starrynight_palette (
 
 
 projectile_0_rom projectile_0_rom ( //0
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_0),
 	.q       (rom_q_b_l_0)
 );
@@ -568,7 +648,7 @@ projectile_0_palette projectile_0_palette (
 );
 
 projectile_30jpg_rom projectile_30jpg_rom ( //30
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_30),
 	.q       (rom_q_b_l_30)
 );
@@ -581,7 +661,7 @@ projectile_30jpg_palette projectile_30jpg_palette (
 );
 
 projectile_45_rom projectile_45_rom ( //45
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_45),
 	.q       (rom_q_b_l_45)
 );
@@ -594,7 +674,7 @@ projectile_45_palette projectile_45_palette (
 );
  
 projectile_60_rom projectile_60_rom ( //60
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_60),
 	.q       (rom_q_b_l_60)
 );
@@ -608,7 +688,7 @@ projectile_60_palette projectile_60_palette (
 
 
 projectile_90_rom projectile_90_rom ( //90
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_90),
 	.q       (rom_q_b_l_90)
 );
@@ -622,7 +702,7 @@ projectile_90_palette projectile_90_palette (
 
 
 projectile_120_rom projectile_120_rom ( //120
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_120),
 	.q       (rom_q_b_l_120)
 );
@@ -636,7 +716,7 @@ projectile_120_palette projectile_120_palette (
 
 
 projectile_135_rom projectile_135_rom ( //135
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_135),
 	.q       (rom_q_b_l_135)
 );
@@ -649,7 +729,7 @@ projectile_135_palette projectile_135_palette (
 );
 
 projectile_150_rom projectile_150_rom ( //150
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_150),
 	.q       (rom_q_b_l_150)
 );
@@ -662,7 +742,7 @@ projectile_150_palette projectile_150_palette (
 );
 
 projectile_180_rom projectile_180_rom ( //180
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_180),
 	.q       (rom_q_b_l_180)
 );
@@ -675,7 +755,7 @@ projectile_180_palette projectile_180_palette (
 );
 
 projectile_210_rom projectile_210_rom ( //210
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_210),
 	.q       (rom_q_b_l_210)
 );
@@ -689,7 +769,7 @@ projectile_210_palette projectile_210_palette (
 
 
 projectile_225_rom projectile_225_rom ( //225
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_225),
 	.q       (rom_q_b_l_225)
 );
@@ -703,7 +783,7 @@ projectile_225_palette projectile_225_palette (
 
 
 projectile_240_rom projectile_240_rom ( //240
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_240),
 	.q       (rom_q_b_l_240)
 );
@@ -717,7 +797,7 @@ projectile_240_palette projectile_240_palette (
 
 
 projectile_270_rom projectile_270_rom ( //270
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_270),
 	.q       (rom_q_b_l_270)
 );
@@ -730,7 +810,7 @@ projectile_270_palette projectile_270_palette (
 );
 
 projectile_300_rom projectile_300_rom ( //300
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_300),
 	.q       (rom_q_b_l_300)
 );
@@ -743,7 +823,7 @@ projectile_300_palette projectile_300_palette (
 );
 
 projectile_315_rom projectile_315_rom ( //315
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_315),
 	.q       (rom_q_b_l_315)
 );
@@ -756,7 +836,7 @@ projectile_315_palette projectile_315_palette (
 );
  
 projectile_330_rom projectile_330_rom ( //330
-	.clock   (vga_clk),
+	.clock   (negedge_vga_clk),
 	.address (rom_address_b_l_330),
 	.q       (rom_q_b_l_330)
 );
@@ -766,6 +846,19 @@ projectile_330_palette projectile_330_palette (
 	.red   (palette_red_b_l_330),
 	.green (palette_green_b_l_330),
 	.blue  (palette_blue_b_l_330)
+);
+
+turret_330_rom turret_330_rom (
+	.clock   (negedge_vga_clk),
+	.address (rom_address_t_l_330),
+	.q       (rom_q_t_l_330)
+);
+
+turret_330_palette turret_330_palette (
+	.index (rom_q_t_l_330),
+	.red   (palette_red_t_l_330),
+	.green (palette_green_t_l_330),
+	.blue  (palette_blue_t_l_330)
 );
 
 endmodule
