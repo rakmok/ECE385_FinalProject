@@ -1,7 +1,7 @@
 |lab62
 MAX10_CLK1_50 => MAX10_CLK1_50.IN2
 KEY[0] => KEY[0].IN1
-KEY[1] => KEY[1].IN2
+KEY[1] => KEY[1].IN1
 SW[0] => ~NO_FANOUT~
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -12,16 +12,16 @@ SW[6] => ~NO_FANOUT~
 SW[7] => ~NO_FANOUT~
 SW[8] => ~NO_FANOUT~
 SW[9] => ~NO_FANOUT~
-LEDR[0] <= lab62soc:u0.leds_export
-LEDR[1] <= lab62soc:u0.leds_export
-LEDR[2] <= lab62soc:u0.leds_export
-LEDR[3] <= lab62soc:u0.leds_export
-LEDR[4] <= lab62soc:u0.leds_export
-LEDR[5] <= lab62soc:u0.leds_export
-LEDR[6] <= lab62soc:u0.leds_export
-LEDR[7] <= lab62soc:u0.leds_export
-LEDR[8] <= lab62soc:u0.leds_export
-LEDR[9] <= lab62soc:u0.leds_export
+LEDR[0] <= fullproject:fullproject.flag_t_l_90_exist_m
+LEDR[1] <= fullproject:fullproject.flag_t_l_60_exist_m
+LEDR[2] <= fullproject:fullproject.flag_t_l_45_exist_m
+LEDR[3] <= fullproject:fullproject.flag_t_l_30_exist_m
+LEDR[4] <= fullproject:fullproject.flag_t_l_0_exist_m
+LEDR[5] <= fullproject:fullproject.flag_t_l_330_exist_m
+LEDR[6] <= fullproject:fullproject.flag_t_l_315_exist_m
+LEDR[7] <= fullproject:fullproject.flag_t_l_300_exist_m
+LEDR[8] <= fullproject:fullproject.flag_t_l_270_exist_m
+LEDR[9] <= <GND>
 HEX0[0] <= HexDriver:hex_driver0.port1
 HEX0[1] <= HexDriver:hex_driver0.port1
 HEX0[2] <= HexDriver:hex_driver0.port1
@@ -39,12 +39,12 @@ HEX1[5] <= HexDriver:hex_driver1.port1
 HEX1[6] <= HexDriver:hex_driver1.port1
 HEX1[7] <= <VCC>
 HEX2[0] <= <VCC>
-HEX2[1] <= lab62soc:u0.leds_export
-HEX2[2] <= lab62soc:u0.leds_export
+HEX2[1] <= <VCC>
+HEX2[2] <= <VCC>
 HEX2[3] <= <VCC>
 HEX2[4] <= <VCC>
 HEX2[5] <= <VCC>
-HEX2[6] <= lab62soc:u0.leds_export
+HEX2[6] <= <VCC>
 HEX2[7] <= <VCC>
 HEX3[0] <= HexDriver:hex_driver3.port1
 HEX3[1] <= HexDriver:hex_driver3.port1
@@ -63,12 +63,12 @@ HEX4[5] <= HexDriver:hex_driver4.port1
 HEX4[6] <= HexDriver:hex_driver4.port1
 HEX4[7] <= <VCC>
 HEX5[0] <= <VCC>
-HEX5[1] <= lab62soc:u0.leds_export
-HEX5[2] <= lab62soc:u0.leds_export
+HEX5[1] <= <VCC>
+HEX5[2] <= <VCC>
 HEX5[3] <= <VCC>
 HEX5[4] <= <VCC>
 HEX5[5] <= <VCC>
-HEX5[6] <= lab62soc:u0.leds_export
+HEX5[6] <= <VCC>
 HEX5[7] <= <VCC>
 DRAM_CLK <= lab62soc:u0.sdram_clk_clk
 DRAM_CKE <= lab62soc:u0.sdram_wire_cke
@@ -110,19 +110,19 @@ DRAM_WE_N <= lab62soc:u0.sdram_wire_we_n
 DRAM_CAS_N <= lab62soc:u0.sdram_wire_cas_n
 DRAM_RAS_N <= lab62soc:u0.sdram_wire_ras_n
 VGA_HS <= vga_controller:vga.hs
-VGA_VS <= VGA_VS.DB_MAX_OUTPUT_PORT_TYPE
-VGA_R[0] <= dogactualfinal_example:dog.red
-VGA_R[1] <= dogactualfinal_example:dog.red
-VGA_R[2] <= dogactualfinal_example:dog.red
-VGA_R[3] <= dogactualfinal_example:dog.red
-VGA_G[0] <= dogactualfinal_example:dog.green
-VGA_G[1] <= dogactualfinal_example:dog.green
-VGA_G[2] <= dogactualfinal_example:dog.green
-VGA_G[3] <= dogactualfinal_example:dog.green
-VGA_B[0] <= dogactualfinal_example:dog.blue
-VGA_B[1] <= dogactualfinal_example:dog.blue
-VGA_B[2] <= dogactualfinal_example:dog.blue
-VGA_B[3] <= dogactualfinal_example:dog.blue
+VGA_VS <= vga_controller:vga.vs
+VGA_R[0] <= fullproject:fullproject.red[0]
+VGA_R[1] <= fullproject:fullproject.red[1]
+VGA_R[2] <= fullproject:fullproject.red[2]
+VGA_R[3] <= fullproject:fullproject.red[3]
+VGA_G[0] <= fullproject:fullproject.green[0]
+VGA_G[1] <= fullproject:fullproject.green[1]
+VGA_G[2] <= fullproject:fullproject.green[2]
+VGA_G[3] <= fullproject:fullproject.green[3]
+VGA_B[0] <= fullproject:fullproject.blue[0]
+VGA_B[1] <= fullproject:fullproject.blue[1]
+VGA_B[2] <= fullproject:fullproject.blue[2]
+VGA_B[3] <= fullproject:fullproject.blue[3]
 ARDUINO_IO[0] <> <UNC>
 ARDUINO_IO[1] <> <UNC>
 ARDUINO_IO[2] <> <UNC>
@@ -84412,7 +84412,7 @@ DrawY[8] <= vc[8].DB_MAX_OUTPUT_PORT_TYPE
 DrawY[9] <= vc[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog
+|lab62|fullproject:fullproject
 DrawX[0] => turret_x_right[0].IN1
 DrawX[1] => rom_address_s[1].IN1
 DrawX[2] => rom_address_s[2].IN1
@@ -84422,56 +84422,44 @@ DrawX[5] => rom_address_s[5].IN1
 DrawX[6] => rom_address_s[6].IN1
 DrawX[7] => Add1.IN24
 DrawX[7] => Add2.IN12
-DrawX[7] => Add7.IN12
-DrawX[7] => Add9.IN12
-DrawX[7] => Add11.IN13
-DrawX[7] => Add13.IN13
-DrawX[7] => Add15.IN12
+DrawX[7] => Add8.IN12
+DrawX[7] => Add10.IN12
+DrawX[7] => Add12.IN13
+DrawX[7] => Add14.IN12
 DrawX[7] => LessThan6.IN13
-DrawX[7] => Add20.IN25
+DrawX[7] => Add19.IN25
 DrawX[7] => LessThan14.IN3
 DrawX[7] => LessThan16.IN12
-DrawX[7] => LessThan18.IN3
-DrawX[7] => LessThan20.IN12
 DrawX[8] => Add1.IN23
 DrawX[8] => Add2.IN11
-DrawX[8] => Add7.IN11
-DrawX[8] => Add9.IN11
-DrawX[8] => Add11.IN12
-DrawX[8] => Add13.IN12
-DrawX[8] => Add15.IN11
+DrawX[8] => Add8.IN11
+DrawX[8] => Add10.IN11
+DrawX[8] => Add12.IN12
+DrawX[8] => Add14.IN11
 DrawX[8] => LessThan6.IN12
-DrawX[8] => Add20.IN24
+DrawX[8] => Add19.IN24
 DrawX[8] => LessThan14.IN2
 DrawX[8] => LessThan16.IN11
-DrawX[8] => LessThan18.IN2
-DrawX[8] => LessThan20.IN11
 DrawX[9] => Add1.IN22
 DrawX[9] => Add2.IN10
-DrawX[9] => Add7.IN10
-DrawX[9] => Add9.IN10
-DrawX[9] => Add11.IN11
-DrawX[9] => Add13.IN11
-DrawX[9] => Add15.IN10
+DrawX[9] => Add8.IN10
+DrawX[9] => Add10.IN10
+DrawX[9] => Add12.IN11
+DrawX[9] => Add14.IN10
 DrawX[9] => LessThan6.IN11
-DrawX[9] => Add20.IN23
+DrawX[9] => Add19.IN23
 DrawX[9] => LessThan14.IN1
 DrawX[9] => LessThan16.IN10
-DrawX[9] => LessThan18.IN1
-DrawX[9] => LessThan20.IN10
 DrawY[0] => Add0.IN20
 DrawY[0] => Add1.IN26
-DrawY[0] => Add12.IN20
-DrawY[0] => Add14.IN20
+DrawY[0] => Add13.IN20
 DrawY[0] => LessThan7.IN20
 DrawY[0] => Mult1.IN15
 DrawY[0] => LessThan15.IN10
 DrawY[0] => LessThan17.IN19
-DrawY[0] => LessThan19.IN10
-DrawY[0] => LessThan21.IN19
-DrawY[0] => LessThan23.IN11
-DrawY[0] => Add51.IN3
-DrawY[0] => Add52.IN18
+DrawY[0] => LessThan19.IN11
+DrawY[0] => Add64.IN3
+DrawY[0] => Add65.IN18
 DrawY[0] => LessThan9.IN11
 DrawY[0] => Mult2.IN6
 DrawY[0] => Mult3.IN6
@@ -84490,15 +84478,12 @@ DrawY[0] => Mult11.IN7
 DrawY[1] => Add0.IN19
 DrawY[1] => Add1.IN25
 DrawY[1] => Add3.IN18
-DrawY[1] => Add8.IN18
-DrawY[1] => Add12.IN19
-DrawY[1] => Add14.IN19
+DrawY[1] => Add9.IN18
+DrawY[1] => Add13.IN19
 DrawY[1] => LessThan7.IN19
 DrawY[1] => Mult1.IN14
 DrawY[1] => LessThan15.IN9
 DrawY[1] => LessThan17.IN18
-DrawY[1] => LessThan19.IN9
-DrawY[1] => LessThan21.IN18
 DrawY[1] => LessThan5.IN11
 DrawY[1] => Mult0.IN6
 DrawY[1] => LessThan13.IN11
@@ -84506,115 +84491,91 @@ DrawY[1] => Mult11.IN6
 DrawY[2] => Add0.IN17
 DrawY[2] => Add0.IN18
 DrawY[2] => Add3.IN17
-DrawY[2] => Add8.IN17
-DrawY[2] => Add10.IN16
-DrawY[2] => Add12.IN18
-DrawY[2] => Add14.IN18
-DrawY[2] => Add16.IN16
+DrawY[2] => Add9.IN17
+DrawY[2] => Add11.IN16
+DrawY[2] => Add13.IN18
+DrawY[2] => Add15.IN16
 DrawY[2] => LessThan7.IN18
 DrawY[2] => Mult1.IN13
 DrawY[2] => LessThan15.IN8
 DrawY[2] => LessThan17.IN17
-DrawY[2] => LessThan19.IN8
-DrawY[2] => LessThan21.IN17
 DrawY[3] => Add0.IN15
 DrawY[3] => Add0.IN16
 DrawY[3] => Add3.IN16
-DrawY[3] => Add8.IN16
-DrawY[3] => Add10.IN15
-DrawY[3] => Add12.IN17
-DrawY[3] => Add14.IN17
-DrawY[3] => Add16.IN15
+DrawY[3] => Add9.IN16
+DrawY[3] => Add11.IN15
+DrawY[3] => Add13.IN17
+DrawY[3] => Add15.IN15
 DrawY[3] => LessThan7.IN17
 DrawY[3] => Mult1.IN12
 DrawY[3] => LessThan15.IN7
 DrawY[3] => LessThan17.IN16
-DrawY[3] => LessThan19.IN7
-DrawY[3] => LessThan21.IN16
 DrawY[4] => Add0.IN13
 DrawY[4] => Add0.IN14
 DrawY[4] => Add3.IN15
-DrawY[4] => Add8.IN15
-DrawY[4] => Add10.IN14
-DrawY[4] => Add12.IN16
-DrawY[4] => Add14.IN16
-DrawY[4] => Add16.IN14
+DrawY[4] => Add9.IN15
+DrawY[4] => Add11.IN14
+DrawY[4] => Add13.IN16
+DrawY[4] => Add15.IN14
 DrawY[4] => LessThan7.IN16
 DrawY[4] => Mult1.IN11
 DrawY[4] => LessThan15.IN6
 DrawY[4] => LessThan17.IN15
-DrawY[4] => LessThan19.IN6
-DrawY[4] => LessThan21.IN15
 DrawY[5] => Add0.IN11
 DrawY[5] => Add0.IN12
 DrawY[5] => Add3.IN14
-DrawY[5] => Add8.IN14
-DrawY[5] => Add10.IN13
-DrawY[5] => Add12.IN15
-DrawY[5] => Add14.IN15
-DrawY[5] => Add16.IN13
+DrawY[5] => Add9.IN14
+DrawY[5] => Add11.IN13
+DrawY[5] => Add13.IN15
+DrawY[5] => Add15.IN13
 DrawY[5] => LessThan7.IN15
 DrawY[5] => Mult1.IN10
 DrawY[5] => LessThan15.IN5
 DrawY[5] => LessThan17.IN14
-DrawY[5] => LessThan19.IN5
-DrawY[5] => LessThan21.IN14
 DrawY[6] => Add0.IN9
 DrawY[6] => Add0.IN10
 DrawY[6] => Add3.IN13
-DrawY[6] => Add8.IN13
-DrawY[6] => Add10.IN12
-DrawY[6] => Add12.IN14
-DrawY[6] => Add14.IN14
-DrawY[6] => Add16.IN12
+DrawY[6] => Add9.IN13
+DrawY[6] => Add11.IN12
+DrawY[6] => Add13.IN14
+DrawY[6] => Add15.IN12
 DrawY[6] => LessThan7.IN14
 DrawY[6] => Mult1.IN9
 DrawY[6] => LessThan15.IN4
 DrawY[6] => LessThan17.IN13
-DrawY[6] => LessThan19.IN4
-DrawY[6] => LessThan21.IN13
 DrawY[7] => Add0.IN7
 DrawY[7] => Add0.IN8
 DrawY[7] => Add3.IN12
-DrawY[7] => Add8.IN12
-DrawY[7] => Add10.IN11
-DrawY[7] => Add12.IN13
-DrawY[7] => Add14.IN13
-DrawY[7] => Add16.IN11
+DrawY[7] => Add9.IN12
+DrawY[7] => Add11.IN11
+DrawY[7] => Add13.IN13
+DrawY[7] => Add15.IN11
 DrawY[7] => LessThan7.IN13
 DrawY[7] => Mult1.IN8
 DrawY[7] => LessThan15.IN3
 DrawY[7] => LessThan17.IN12
-DrawY[7] => LessThan19.IN3
-DrawY[7] => LessThan21.IN12
 DrawY[8] => Add0.IN5
 DrawY[8] => Add0.IN6
 DrawY[8] => Add3.IN11
-DrawY[8] => Add8.IN11
-DrawY[8] => Add10.IN10
-DrawY[8] => Add12.IN12
-DrawY[8] => Add14.IN12
-DrawY[8] => Add16.IN10
+DrawY[8] => Add9.IN11
+DrawY[8] => Add11.IN10
+DrawY[8] => Add13.IN12
+DrawY[8] => Add15.IN10
 DrawY[8] => LessThan7.IN12
 DrawY[8] => Mult1.IN7
 DrawY[8] => LessThan15.IN2
 DrawY[8] => LessThan17.IN11
-DrawY[8] => LessThan19.IN2
-DrawY[8] => LessThan21.IN11
 DrawY[9] => Add0.IN3
 DrawY[9] => Add0.IN4
 DrawY[9] => Add3.IN10
-DrawY[9] => Add8.IN10
-DrawY[9] => Add10.IN9
-DrawY[9] => Add12.IN11
-DrawY[9] => Add14.IN11
-DrawY[9] => Add16.IN9
+DrawY[9] => Add9.IN10
+DrawY[9] => Add11.IN9
+DrawY[9] => Add13.IN11
+DrawY[9] => Add15.IN9
 DrawY[9] => LessThan7.IN11
 DrawY[9] => Mult1.IN6
 DrawY[9] => LessThan15.IN1
 DrawY[9] => LessThan17.IN10
-DrawY[9] => LessThan19.IN1
-DrawY[9] => LessThan21.IN10
 keycode[0] => ISDU:ISDU.keycode[0]
 keycode[1] => ISDU:ISDU.keycode[1]
 keycode[2] => ISDU:ISDU.keycode[2]
@@ -84669,7 +84630,27 @@ blank => blue.OUTPUTSELECT
 blank => blue.OUTPUTSELECT
 blank => blue.OUTPUTSELECT
 frame_clk => ISDU:ISDU.Clk
-frame_clk => always25.IN1
+frame_clk => always34.IN1
+frame_clk => b_l_motion_y[0].CLK
+frame_clk => b_l_motion_y[1].CLK
+frame_clk => b_l_motion_y[2].CLK
+frame_clk => b_l_motion_y[3].CLK
+frame_clk => b_l_motion_y[4].CLK
+frame_clk => b_l_motion_y[5].CLK
+frame_clk => b_l_motion_y[6].CLK
+frame_clk => b_l_motion_y[7].CLK
+frame_clk => b_l_motion_y[8].CLK
+frame_clk => b_l_motion_y[9].CLK
+frame_clk => b_l_motion_x[0].CLK
+frame_clk => b_l_motion_x[1].CLK
+frame_clk => b_l_motion_x[2].CLK
+frame_clk => b_l_motion_x[3].CLK
+frame_clk => b_l_motion_x[4].CLK
+frame_clk => b_l_motion_x[5].CLK
+frame_clk => b_l_motion_x[6].CLK
+frame_clk => b_l_motion_x[7].CLK
+frame_clk => b_l_motion_x[8].CLK
+frame_clk => b_l_motion_x[9].CLK
 KEY => flag_b_reset.CLK
 Reset => ~NO_FANOUT~
 turret_clk => ~NO_FANOUT~
@@ -84685,9 +84666,18 @@ blue[0] <= blue[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 blue[1] <= blue[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 blue[2] <= blue[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= blue[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+flag_t_l_90_exist_m <= ISDU:ISDU.flag_t_l_90_exist
+flag_t_l_60_exist_m <= ISDU:ISDU.flag_t_l_60_exist
+flag_t_l_45_exist_m <= ISDU:ISDU.flag_t_l_45_exist
+flag_t_l_30_exist_m <= ISDU:ISDU.flag_t_l_30_exist
+flag_t_l_0_exist_m <= ISDU:ISDU.flag_t_l_0_exist
+flag_t_l_330_exist_m <= ISDU:ISDU.flag_t_l_330_exist
+flag_t_l_315_exist_m <= ISDU:ISDU.flag_t_l_315_exist
+flag_t_l_300_exist_m <= ISDU:ISDU.flag_t_l_300_exist
+flag_t_l_270_exist_m <= ISDU:ISDU.flag_t_l_270_exist
 
 
-|lab62|dogactualfinal_example:dog|ISDU:ISDU
+|lab62|fullproject:fullproject|ISDU:ISDU
 Clk => ~NO_FANOUT~
 Reset => State.OUTPUTSELECT
 Reset => State.OUTPUTSELECT
@@ -84725,7 +84715,7 @@ flag_t_l_300_exist <= flag_t_l_300_exist.DB_MAX_OUTPUT_PORT_TYPE
 flag_t_l_270_exist <= flag_t_l_270_exist.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_rom:turret_rom
+|lab62|fullproject:fullproject|turret_rom:turret_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -84745,7 +84735,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_palette:turret_palette
+|lab62|fullproject:fullproject|turret_palette:turret_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[2] => Decoder0.IN0
@@ -84763,7 +84753,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|dogactualfinal_rom:dogactualfinal_rom
+|lab62|fullproject:fullproject|dogactualfinal_rom:dogactualfinal_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -84785,7 +84775,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|dogactualfinal_palette:dogactualfinal_palette
+|lab62|fullproject:fullproject|dogactualfinal_palette:dogactualfinal_palette
 index[0] => Decoder1.IN2
 index[0] => Decoder2.IN1
 index[0] => green[3].DATAIN
@@ -84809,7 +84799,7 @@ blue[2] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|penguin_final_rom:penguin_final_rom
+|lab62|fullproject:fullproject|penguin_final_rom:penguin_final_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -84831,7 +84821,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|penguin_final_palette:penguin_final_palette
+|lab62|fullproject:fullproject|penguin_final_palette:penguin_final_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[1] => Decoder0.IN0
@@ -84851,7 +84841,7 @@ blue[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_180_rom:turret_180_rom
+|lab62|fullproject:fullproject|turret_180_rom:turret_180_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -84871,7 +84861,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_180_palette:turret_180_palette
+|lab62|fullproject:fullproject|turret_180_palette:turret_180_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[1] => Decoder1.IN1
@@ -84891,7 +84881,7 @@ blue[2] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|deflector_rom:deflector_rom
+|lab62|fullproject:fullproject|deflector_rom:deflector_rom
 clock => q2[0]~reg0.CLK
 clock => q[0]~reg0.CLK
 address[0] => memory.RADDR
@@ -84920,7 +84910,7 @@ q[0] <= q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q2[0] <= q2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|deflector_palette:deflector_palette
+|lab62|fullproject:fullproject|deflector_palette:deflector_palette
 index[0] => Decoder0.IN0
 index2[0] => Decoder1.IN0
 red[0] <= <VCC>
@@ -84949,7 +84939,7 @@ blue2[2] <= <VCC>
 blue2[3] <= <VCC>
 
 
-|lab62|dogactualfinal_example:dog|starrynight_rom:starrynight_rom
+|lab62|fullproject:fullproject|starrynight_rom:starrynight_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -84977,7 +84967,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|starrynight_palette:starrynight_palette
+|lab62|fullproject:fullproject|starrynight_palette:starrynight_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[2] => Decoder0.IN0
@@ -84995,7 +84985,7 @@ blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_0_rom:projectile_0_rom
+|lab62|fullproject:fullproject|projectile_0_rom:projectile_0_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85015,7 +85005,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_0_palette:projectile_0_palette
+|lab62|fullproject:fullproject|projectile_0_palette:projectile_0_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[0] => Decoder2.IN1
@@ -85037,7 +85027,7 @@ blue[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_30jpg_rom:projectile_30jpg_rom
+|lab62|fullproject:fullproject|projectile_30jpg_rom:projectile_30jpg_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85057,7 +85047,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_30jpg_palette:projectile_30jpg_palette
+|lab62|fullproject:fullproject|projectile_30jpg_palette:projectile_30jpg_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[2] => Decoder0.IN0
@@ -85075,7 +85065,7 @@ blue[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_45_rom:projectile_45_rom
+|lab62|fullproject:fullproject|projectile_45_rom:projectile_45_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85095,7 +85085,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_45_palette:projectile_45_palette
+|lab62|fullproject:fullproject|projectile_45_palette:projectile_45_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[0] => Decoder2.IN1
@@ -85119,7 +85109,7 @@ blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_60_rom:projectile_60_rom
+|lab62|fullproject:fullproject|projectile_60_rom:projectile_60_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85139,7 +85129,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_60_palette:projectile_60_palette
+|lab62|fullproject:fullproject|projectile_60_palette:projectile_60_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1
@@ -85159,7 +85149,7 @@ blue[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_90_rom:projectile_90_rom
+|lab62|fullproject:fullproject|projectile_90_rom:projectile_90_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85179,7 +85169,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_90_palette:projectile_90_palette
+|lab62|fullproject:fullproject|projectile_90_palette:projectile_90_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN1
 index[0] => Decoder2.IN2
@@ -85201,7 +85191,7 @@ blue[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_120_rom:projectile_120_rom
+|lab62|fullproject:fullproject|projectile_120_rom:projectile_120_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85221,7 +85211,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_120_palette:projectile_120_palette
+|lab62|fullproject:fullproject|projectile_120_palette:projectile_120_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[1] => Decoder1.IN1
@@ -85241,7 +85231,7 @@ blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_135_rom:projectile_135_rom
+|lab62|fullproject:fullproject|projectile_135_rom:projectile_135_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85261,7 +85251,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_135_palette:projectile_135_palette
+|lab62|fullproject:fullproject|projectile_135_palette:projectile_135_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1
@@ -85283,7 +85273,7 @@ blue[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_150_rom:projectile_150_rom
+|lab62|fullproject:fullproject|projectile_150_rom:projectile_150_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85303,7 +85293,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_150_palette:projectile_150_palette
+|lab62|fullproject:fullproject|projectile_150_palette:projectile_150_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[1] => Decoder1.IN1
@@ -85323,7 +85313,7 @@ blue[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_180_rom:projectile_180_rom
+|lab62|fullproject:fullproject|projectile_180_rom:projectile_180_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85343,7 +85333,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_180_palette:projectile_180_palette
+|lab62|fullproject:fullproject|projectile_180_palette:projectile_180_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[0] => Decoder2.IN1
@@ -85367,7 +85357,7 @@ blue[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= concat.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_210_rom:projectile_210_rom
+|lab62|fullproject:fullproject|projectile_210_rom:projectile_210_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85387,7 +85377,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_210_palette:projectile_210_palette
+|lab62|fullproject:fullproject|projectile_210_palette:projectile_210_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1
@@ -85408,7 +85398,7 @@ blue[2] <= index[1].DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_225_rom:projectile_225_rom
+|lab62|fullproject:fullproject|projectile_225_rom:projectile_225_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85428,7 +85418,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_225_palette:projectile_225_palette
+|lab62|fullproject:fullproject|projectile_225_palette:projectile_225_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[0] => Decoder2.IN1
@@ -85453,7 +85443,7 @@ blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_240_rom:projectile_240_rom
+|lab62|fullproject:fullproject|projectile_240_rom:projectile_240_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85473,7 +85463,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_240_palette:projectile_240_palette
+|lab62|fullproject:fullproject|projectile_240_palette:projectile_240_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[0] => Decoder3.IN1
@@ -85497,7 +85487,7 @@ blue[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_270_rom:projectile_270_rom
+|lab62|fullproject:fullproject|projectile_270_rom:projectile_270_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85517,7 +85507,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_270_palette:projectile_270_palette
+|lab62|fullproject:fullproject|projectile_270_palette:projectile_270_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder2.IN1
 index[1] => Decoder0.IN1
@@ -85539,7 +85529,7 @@ blue[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_300_rom:projectile_300_rom
+|lab62|fullproject:fullproject|projectile_300_rom:projectile_300_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85559,7 +85549,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_300_palette:projectile_300_palette
+|lab62|fullproject:fullproject|projectile_300_palette:projectile_300_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder2.IN2
 index[1] => Decoder1.IN1
@@ -85582,7 +85572,7 @@ blue[2] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_315_rom:projectile_315_rom
+|lab62|fullproject:fullproject|projectile_315_rom:projectile_315_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85602,7 +85592,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_315_palette:projectile_315_palette
+|lab62|fullproject:fullproject|projectile_315_palette:projectile_315_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[0] => Decoder2.IN1
@@ -85626,7 +85616,7 @@ blue[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_330_rom:projectile_330_rom
+|lab62|fullproject:fullproject|projectile_330_rom:projectile_330_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85646,7 +85636,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|projectile_330_palette:projectile_330_palette
+|lab62|fullproject:fullproject|projectile_330_palette:projectile_330_palette
 index[0] => Decoder0.IN1
 index[0] => Decoder1.IN2
 index[1] => Decoder1.IN1
@@ -85668,7 +85658,7 @@ blue[2] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_30_rom:turret_30_rom
+|lab62|fullproject:fullproject|turret_30_rom:turret_30_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85688,7 +85678,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_30_palette:turret_30_palette
+|lab62|fullproject:fullproject|turret_30_palette:turret_30_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[1] => Decoder1.IN1
@@ -85708,7 +85698,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_45_rom:turret_45_rom
+|lab62|fullproject:fullproject|turret_45_rom:turret_45_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85728,25 +85718,29 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_45_palette:turret_45_palette
+|lab62|fullproject:fullproject|turret_45_palette:turret_45_palette
 index[0] => Decoder0.IN2
+index[0] => Decoder2.IN1
 index[1] => Decoder0.IN1
+index[1] => Decoder1.IN1
+index[1] => Decoder2.IN0
 index[2] => Decoder0.IN0
-red[0] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-red[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+index[2] => Decoder1.IN0
+red[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+red[1] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
 red[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 red[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-green[0] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-green[1] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-green[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+green[2] <= Decoder2.DB_MAX_OUTPUT_PORT_TYPE
 green[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-blue[0] <= concat.DB_MAX_OUTPUT_PORT_TYPE
-blue[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+blue[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+blue[1] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
 blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_60_rom:turret_60_rom
+|lab62|fullproject:fullproject|turret_60_rom:turret_60_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85766,7 +85760,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_60_palette:turret_60_palette
+|lab62|fullproject:fullproject|turret_60_palette:turret_60_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[2] => Decoder0.IN0
@@ -85784,7 +85778,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_90_rom:turret_90_rom
+|lab62|fullproject:fullproject|turret_90_rom:turret_90_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85804,7 +85798,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_90_palette:turret_90_palette
+|lab62|fullproject:fullproject|turret_90_palette:turret_90_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1
@@ -85824,7 +85818,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_330_rom:turret_330_rom
+|lab62|fullproject:fullproject|turret_330_rom:turret_330_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85844,7 +85838,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_330_palette:turret_330_palette
+|lab62|fullproject:fullproject|turret_330_palette:turret_330_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1
@@ -85864,7 +85858,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_315_rom:turret_315_rom
+|lab62|fullproject:fullproject|turret_315_rom:turret_315_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85884,7 +85878,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_315_palette:turret_315_palette
+|lab62|fullproject:fullproject|turret_315_palette:turret_315_palette
 index[0] => Decoder0.IN2
 index[1] => Decoder0.IN1
 index[2] => Decoder0.IN0
@@ -85902,7 +85896,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_300_rom:turret_300_rom
+|lab62|fullproject:fullproject|turret_300_rom:turret_300_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85922,7 +85916,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_300_palette:turret_300_palette
+|lab62|fullproject:fullproject|turret_300_palette:turret_300_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[0] => Decoder2.IN1
@@ -85944,7 +85938,7 @@ blue[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 blue[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_270_rom:turret_270_rom
+|lab62|fullproject:fullproject|turret_270_rom:turret_270_rom
 clock => q[0]~reg0.CLK
 clock => q[1]~reg0.CLK
 clock => q[2]~reg0.CLK
@@ -85964,7 +85958,7 @@ q[1] <= q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[2] <= q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab62|dogactualfinal_example:dog|turret_270_palette:turret_270_palette
+|lab62|fullproject:fullproject|turret_270_palette:turret_270_palette
 index[0] => Decoder0.IN2
 index[0] => Decoder1.IN1
 index[1] => Decoder0.IN1

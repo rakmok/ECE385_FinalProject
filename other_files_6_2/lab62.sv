@@ -118,7 +118,17 @@ logic Reset_h, vssig, blank, sync, VGA_Clk, turret_clk;
 //	assign VGA_R = Red[7:4];
 //	assign VGA_B = Blue[7:4];
 //	assign VGA_G = Green[7:4];
-//	
+logic flag_t_l_90_exist_m, flag_t_l_60_exist_m,flag_t_l_45_exist_m,flag_t_l_30_exist_m,flag_t_l_0_exist_m,
+flag_t_l_330_exist_m,flag_t_l_315_exist_m,flag_t_l_300_exist_m,flag_t_l_270_exist_m;
+	assign LEDR[0] = flag_t_l_90_exist_m;
+	assign LEDR[1] = flag_t_l_60_exist_m;
+	assign LEDR[2] = flag_t_l_45_exist_m;
+	assign LEDR[3] = flag_t_l_30_exist_m;
+	assign LEDR[4] = flag_t_l_0_exist_m;
+	assign LEDR[5] = flag_t_l_330_exist_m;
+	assign LEDR[6] = flag_t_l_315_exist_m;
+	assign LEDR[7] = flag_t_l_300_exist_m;
+	assign LEDR[8] = flag_t_l_270_exist_m;
 	
 	lab62soc u0 (
 		.clk_clk                           (MAX10_CLK1_50),  //clk.clk
@@ -154,7 +164,7 @@ logic Reset_h, vssig, blank, sync, VGA_Clk, turret_clk;
 		
 		//LEDs and HEX
 		.hex_digits_export({hex_num_4, hex_num_3, hex_num_1, hex_num_0}),
-		.leds_export({hundreds, signs, LEDR}),
+//		.leds_export({hundreds, signs, LEDR}),
 		.keycode_export(keycode)
 		
 	 );
@@ -173,9 +183,9 @@ vga_controller vga  (.Clk(MAX10_CLK1_50) ,       // 50 MHz clock
 								              .DrawY(drawysig) );   // vertical coordinate
 //color_mapper color(.BallX(ballxsig), .BallY(ballysig), .DrawX(drawxsig), .DrawY(drawysig), .Ball_size(ballsizesig),
 //                       .* );
-dogactualfinal_example dog(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .turret_clk(turret_clk), .KEY(KEY[1]), .keycode(keycode), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
+fullproject fullproject(.DrawX(drawxsig), .DrawY(drawysig),.vga_clk(VGA_Clk), .frame_clk(VGA_VS), .blank(blank), .turret_clk(turret_clk), .KEY(KEY[1]), .keycode(keycode), .red(VGA_R), .green(VGA_G), .blue(VGA_B)
 
-, .Reset(Reset_h));
+, .Reset(Reset_h), .*);
 
 
 //ball ballmove( .Reset(Reset_h), .frame_clk(VGA_VS),
