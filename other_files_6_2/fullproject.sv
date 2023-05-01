@@ -309,9 +309,9 @@ end
 
 always_comb //turret left 0 drawing
 begin
-if((turretX_left<43 && turretY_left<34&&flag_t_l_0_exist==1))
+if((turretX_left<45 && turretY_left<45&&flag_t_l_0_exist==1))
 begin
-rom_address_t_l_0 = turretX_left+turretY_left*43;
+rom_address_t_l_0 = turretX_left+turretY_left*45;
 flag_t_l_0 = 1;
 end
 else
@@ -1110,13 +1110,13 @@ always_ff @ (posedge vga_clk) begin
 	end
 end
 
-turret_rom turret_rom (
+turret_0_rom turret_0_rom (
 	.clock   (negedge_vga_clk),
 	.address (rom_address_t_l_0),
 	.q       (rom_q_t_l)
 );
 
-turret_palette turret_palette (
+turret_0_palette turret_0_palette (
 	.index (rom_q_t_l),
 	.red   (palette_red_t_l_0),
 	.green (palette_green_t_l_0),

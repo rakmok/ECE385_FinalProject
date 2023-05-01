@@ -6,6 +6,8 @@ flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist
 
 	enum logic [3:0] {T0, T30, T45, T60, T90, T330, T315, T300, T270}   State, Next_state;   // Internal state logic
 	logic turret_up, turret_down, clk2;
+	
+//	initial Next_state = T0;
 always_comb
 begin
 turret_up = 0;
@@ -17,13 +19,13 @@ end
 if(keycode == 8'h16)
 begin
 turret_down = 1;
-end0
+end
 end
 assign clk2 = turret_up | turret_down;
 
 	always_ff @ (posedge clk2)
 	begin
-		if (Reset) 
+		if (~Reset) 
 			State <= T0;
 		else 
 			State <= Next_state;
@@ -32,8 +34,8 @@ assign clk2 = turret_up | turret_down;
 	always_comb
 	begin 
 		// Default next state is staying at current state
-		Next_state = State;
-		
+//		Next_state = State;
+		Next_state = T0;
 		// Default controls signal values
 flag_t_l_0_exist = 0;
 flag_t_l_30_exist = 0;
@@ -128,15 +130,15 @@ flag_t_l_330_exist = 0;
 				Next_state = T270;
 				end
 
-			default : 
-			if(keycode == 8'h1A)
-			begin
-				Next_state = T30;
-			end
-			else if(keycode == 8'h16)
-			begin
-				Next_state = T330;
-			end
+			default : Next_state = T0;
+//			if(keycode == 8'h1A)
+//			begin
+//				Next_state = T0;
+//			end
+//			else if(keycode == 8'h16)
+//			begin
+//				Next_state = T330;
+//			end
 
 		endcase
 		
