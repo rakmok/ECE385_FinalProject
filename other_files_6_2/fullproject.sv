@@ -10,9 +10,9 @@ assign negedge_vga_clk = ~vga_clk;
 
 logic flag_b_reset; //reset flag for bullet (starting)
 initial flag_b_reset = 1;
-initial b_l_motion_x = 10'h001;
+//initial b_l_motion_x = 10'h001;
 //initial b180_motion_x = 10'h001;
-initial b_l_motion_y = 10'h001;
+//initial b_l_motion_y = 10'h001;
 //initial b180_motion_y = 10'h001;
 
 //spacebar = 2c
@@ -42,8 +42,8 @@ begin
 flag_b_reset <= 0;
 end
 logic [9:0] b_override_motion_x, b_override_motion_y;
-initial b_override_motion_x = 1; 
-initial b_override_motion_y = 1;
+//initial b_override_motion_x = 1; 
+//initial b_override_motion_y = 1;
 
 ISDU ISDU ( .Clk(frame_clk),  .Reset(flag_b_reset), .*);
 //always_ff @(posedge up_signal)
@@ -260,8 +260,8 @@ def_detection_y <= 0;
 end
 end
 
-assign turretX_left = DrawX - 50;
-assign turretY_left = DrawY - 50;
+assign turretX_left = DrawX - 40;
+assign turretY_left = DrawY - 40;
 assign actlX = DrawX - 590;
 assign actlY = DrawY - 380;
 
@@ -719,7 +719,7 @@ if(b_l_motion_x ==1 && b_l_motion_y ==0)
 begin
 flag_b_l_0_exist = 1;
 end
-else if(b_l_motion_x ==0 && b_l_motion_y ==1)
+else if(b_l_motion_x ==0 && b_l_motion_y ==2)
 begin
 flag_b_l_270_exist = 1;
 end
@@ -731,7 +731,7 @@ else if(b_l_motion_x ==10'h3FF && b_l_motion_y ==0)
 begin
 flag_b_l_180_exist = 1;
 end
-else if(b_l_motion_x ==0 && b_l_motion_y ==10'h3FF)
+else if(b_l_motion_x ==0 && b_l_motion_y ==10'h3FE)
 begin
 flag_b_l_90_exist = 1;
 end
@@ -822,7 +822,7 @@ b_l_motion_y <= b_l_motion_y;
 //flag_b_l_180_exist <= 1;
 end
 
-else if(b_l_pos_x==5&&(b_l_motion_x>10'h004))
+else if(b_l_pos_x<=5&&(b_l_motion_x>10'h004))
 begin
 b_l_motion_x <= (~(b_l_motion_x)+10'h001);
 //b180_motion_x <= (~(b180_motion_x)+10'h001);
@@ -852,7 +852,7 @@ b_l_motion_y <= b_l_motion_x;
 //flag_b_l_180_exist <= 1;
 end
 
-else if(b_l_pos_y == 5&&(b_l_motion_y>10'h004))
+else if(b_l_pos_y <= 5&&(b_l_motion_y>10'h003))
 begin
 b_l_motion_x <= b_l_motion_x;
 //b180_motion_x <= b180_motion_x;
@@ -1234,7 +1234,7 @@ projectile_30jpg_rom projectile_30jpg_rom ( //30
 );
 
 projectile_30jpg_palette projectile_30jpg_palette ( 
-	.index (rom_q),
+	.index (rom_q_b_l_30),
 	.red   (palette_red_b_l_30),
 	.green (palette_green_b_l_30),
 	.blue  (palette_blue_b_l_30)

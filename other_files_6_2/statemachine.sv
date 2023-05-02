@@ -1,7 +1,7 @@
 module ISDU (   input logic         Clk, 
 									Reset,
 									input logic [7:0] keycode, output logic flag_t_l_90_exist, flag_t_l_60_exist,flag_t_l_45_exist,flag_t_l_30_exist,flag_t_l_0_exist,
-flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist
+flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist, output logic [9:0] b_override_motion_x, b_override_motion_y
 				);
 
 	enum logic [3:0] {T0, T30, T45, T60, T90, T330, T315, T300, T270}   State, Next_state;   // Internal state logic
@@ -46,6 +46,8 @@ flag_t_l_270_exist = 0;
 flag_t_l_300_exist = 0;
 flag_t_l_315_exist = 0;
 flag_t_l_330_exist = 0;
+b_override_motion_x = 1;
+b_override_motion_y = 0;
 		// Assign next state
 		unique case (State)
 			T90 : 
@@ -147,38 +149,56 @@ flag_t_l_330_exist = 0;
 			T90 : 
 				begin 
 			flag_t_l_90_exist = 1;
+			b_override_motion_x = 0;
+			b_override_motion_y = 10'h3FE;
 				end
 			T60 : 
 				begin 
 			flag_t_l_60_exist = 1;
+			b_override_motion_x = 1;
+			b_override_motion_y = 10'h3FE;
 				end
 			T45 : 
 				begin 
 			flag_t_l_45_exist = 1;
+			b_override_motion_x = 1;
+			b_override_motion_y = 10'h3FF;
 				end
 			T30 : 
 				begin 
 			flag_t_l_30_exist = 1;
+			b_override_motion_x = 2;
+			b_override_motion_y = 10'h3FF;
 				end
 			T0 : 
 				begin 
 			flag_t_l_0_exist = 1;
+			b_override_motion_x = 1;
+			b_override_motion_y = 0;
 				end
 			T330 : 
 				begin 
 			flag_t_l_330_exist = 1;
+			b_override_motion_x = 2;
+			b_override_motion_y = 1;
 				end
 			T315 : 
 				begin 
 			flag_t_l_315_exist = 1;
+			b_override_motion_x = 1;
+			b_override_motion_y = 1;
 				end
 			T300 : 
 				begin 
 			flag_t_l_300_exist = 1;
+			b_override_motion_x = 1;
+			b_override_motion_y = 2;
 				end
 			T270 : 
 				begin 
 			flag_t_l_270_exist = 1;
+			b_override_motion_x = 0;
+			b_override_motion_y = 2;
 				end
 
 			default : ;
