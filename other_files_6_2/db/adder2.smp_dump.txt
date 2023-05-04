@@ -1,4 +1,16 @@
 
+State Machine - |lab62|fullproject:fullproject|ISDU2:ISDU2|State
+Name State.T240 State.T225 State.T210 State.T90 State.T150 State.T135 State.T120 State.T180 State.T270 
+State.T180 0 0 0 0 0 0 0 0 0 
+State.T120 0 0 0 0 0 0 1 1 0 
+State.T135 0 0 0 0 0 1 0 1 0 
+State.T150 0 0 0 0 1 0 0 1 0 
+State.T90 0 0 0 1 0 0 0 1 0 
+State.T210 0 0 1 0 0 0 0 1 0 
+State.T225 0 1 0 0 0 0 0 1 0 
+State.T240 1 0 0 0 0 0 0 1 0 
+State.T270 0 0 0 0 0 0 0 1 1 
+
 State Machine - |lab62|fullproject:fullproject|ISDU:ISDU|State
 Name State.T300 State.T315 State.T330 State.T90 State.T60 State.T45 State.T30 State.T0 State.T270 
 State.T0 0 0 0 0 0 0 0 0 0 

@@ -439,6 +439,33 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
 set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE 12.5%
+set_global_assignment -name SYSTEMVERILOG_FILE turret_270_r/turret_270_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_270_r/turret_270_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_270_r/turret_270_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_240_r/turret_240_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_240_r/turret_240_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_240_r/turret_240_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_225_r/turret_225_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_225_r/turret_225_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_225_r/turret_225_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_210_r/turret_210_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_210_r/turret_210_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_210_r/turret_210_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_180_r/turret_180_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_180_r/turret_180_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_180_r/turret_180_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_150_r/turret_150_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_150_r/turret_150_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_150_r/turret_150_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_135_r/turret_135_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_135_r/turret_135_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_135_r/turret_135_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_120_r/turret_120_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_120_r/turret_120_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_120_r/turret_120_r_example.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_90_r/turret_90_r_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_90_r/turret_90_r_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE turret_90_r/turret_90_r_example.sv
 set_global_assignment -name SYSTEMVERILOG_FILE turret_0/turret_0_rom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE turret_0/turret_0_palette.sv
 set_global_assignment -name SYSTEMVERILOG_FILE turret_0/turret_0_example.sv
@@ -565,4 +592,5 @@ set_global_assignment -name SYSTEMVERILOG_FILE ball.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lab61.sv
 set_global_assignment -name SDC_FILE lab6.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE statemachine.sv
+set_global_assignment -name SYSTEMVERILOG_FILE statemachine2.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

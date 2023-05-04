@@ -1,5 +1,4 @@
-module ISDU (   input logic         Clk, 
-									Reset,
+module ISDU (   input logic Reset,
 									input logic [7:0] keycode, output logic flag_t_l_90_exist, flag_t_l_60_exist,flag_t_l_45_exist,flag_t_l_30_exist,flag_t_l_0_exist,
 flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist, output logic [9:0] b_override_motion_x, b_override_motion_y
 				);
@@ -10,18 +9,13 @@ flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist, out
 //	initial Next_state = T0;
 always_comb
 begin
-turret_up = 0;
-turret_down = 0;
-if(keycode==8'h1A)
+clk2 = 0;
+if(keycode==8'h1A||keycode == 8'h16)
 begin
-turret_up = 1;
-end
-if(keycode == 8'h16)
-begin
-turret_down = 1;
+clk2 = 1;
 end
 end
-assign clk2 = turret_up | turret_down;
+
 
 	always_ff @ (posedge clk2)
 	begin
@@ -150,7 +144,7 @@ b_override_motion_y = 0;
 				begin 
 			flag_t_l_90_exist = 1;
 			b_override_motion_x = 0;
-			b_override_motion_y = 10'h3FE;
+			b_override_motion_y = 10'h3FF;
 				end
 			T60 : 
 				begin 
@@ -198,12 +192,92 @@ b_override_motion_y = 0;
 				begin 
 			flag_t_l_270_exist = 1;
 			b_override_motion_x = 0;
-			b_override_motion_y = 2;
+			b_override_motion_y = 1;
 				end
 
 			default : ;
 		endcase
 	end 
-
+//	if(flag_b_l_90_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+20;
+//	def_detection_y = b_l_pos_y;
+//	end
+//	else if(flag_b_l_60_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+25;
+//	def_detection_y = b_l_pos_y+10;
+//	end
+//	else if(flag_b_l_45_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+26;
+//	def_detection_y = b_l_pos_y+13;
+//	end
+//	else if(flag_b_l_30_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+28;
+//	def_detection_y = b_l_pos_y+14;
+//	end
+//	else if(flag_b_l_0_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+40;
+//	def_detection_y = b_l_pos_y+20;
+//	end
+//	else if(flag_b_l_120_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+15;
+//	def_detection_y = b_l_pos_y+10;
+//	end
+//	else if(flag_b_l_135_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+10;
+//	def_detection_y = b_l_pos_y+10;
+//	end
+//	else if(flag_b_l_150_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+10;
+//	def_detection_y = b_l_pos_y+15;
+//	end
+//	else if(flag_b_l_180_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+5;
+//	def_detection_y = b_l_pos_y+20;
+//	end
+//	else if(flag_b_l_210_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+10;
+//	def_detection_y = b_l_pos_y+25;
+//	end
+//	else if(flag_b_l_225_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+13;
+//	def_detection_y = b_l_pos_y+26;
+//	end
+//	else if(flag_b_l_240_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+15;
+//	def_detection_y = b_l_pos_y+28;
+//	end
+//	else if(flag_b_l_270_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+20;
+//	def_detection_y = b_l_pos_y+40;
+//	end
+//	else if(flag_b_l_300_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+25;
+//	def_detection_y = b_l_pos_y+28;
+//	end
+//	else if(flag_b_l_315_exist)
+//	begin
+//	def_detection_x= b_l_pos_x+27;
+//	def_detection_y = b_l_pos_y+27;
+//	end
+//	else if(flag_b_l_330_exist)
+//	begin
+//	def_detection_x = b_l_pos_x+28;
+//	def_detection_y = b_l_pos_y+25;
+//	end
 	
 endmodule
+
