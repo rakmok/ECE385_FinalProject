@@ -1,6 +1,6 @@
 module ISDU (   input logic Reset,
 									input logic [7:0] keycode, output logic flag_t_l_90_exist, flag_t_l_60_exist,flag_t_l_45_exist,flag_t_l_30_exist,flag_t_l_0_exist,
-flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist, output logic [9:0] b_override_motion_x, b_override_motion_y
+flag_t_l_330_exist,flag_t_l_315_exist,flag_t_l_300_exist,flag_t_l_270_exist, output logic [9:0] b_override_motion_x, b_override_motion_y, initial_b_l_pos_x, initial_b_l_pos_y
 				);
 
 	enum logic [3:0] {T0, T30, T45, T60, T90, T330, T315, T300, T270}   State, Next_state;   // Internal state logic
@@ -42,6 +42,8 @@ flag_t_l_315_exist = 0;
 flag_t_l_330_exist = 0;
 b_override_motion_x = 1;
 b_override_motion_y = 0;
+initial_b_l_pos_x = 85;
+initial_b_l_pos_y = 40;
 		// Assign next state
 		unique case (State)
 			T90 : 
@@ -145,54 +147,72 @@ b_override_motion_y = 0;
 			flag_t_l_90_exist = 1;
 			b_override_motion_x = 0;
 			b_override_motion_y = 10'h3FF;
+			initial_b_l_pos_x = 38;
+			initial_b_l_pos_y = 42;
 				end
 			T60 : 
 				begin 
 			flag_t_l_60_exist = 1;
 			b_override_motion_x = 1;
 			b_override_motion_y = 10'h3FE;
+			initial_b_l_pos_x = 40;
+			initial_b_l_pos_y = 43;
 				end
 			T45 : 
 				begin 
 			flag_t_l_45_exist = 1;
 			b_override_motion_x = 1;
 			b_override_motion_y = 10'h3FF;
+			initial_b_l_pos_x = 40;
+			initial_b_l_pos_y = 42;
 				end
 			T30 : 
 				begin 
 			flag_t_l_30_exist = 1;
 			b_override_motion_x = 2;
 			b_override_motion_y = 10'h3FF;
+			initial_b_l_pos_x = 65;
+			initial_b_l_pos_y = 25;
 				end
 			T0 : 
 				begin 
 			flag_t_l_0_exist = 1;
 			b_override_motion_x = 1;
 			b_override_motion_y = 0;
+			initial_b_l_pos_x = 85;
+			initial_b_l_pos_y = 40;
 				end
 			T330 : 
 				begin 
 			flag_t_l_330_exist = 1;
 			b_override_motion_x = 2;
 			b_override_motion_y = 1;
+			initial_b_l_pos_x = 73;
+			initial_b_l_pos_y = 60;
 				end
 			T315 : 
 				begin 
 			flag_t_l_315_exist = 1;
 			b_override_motion_x = 1;
 			b_override_motion_y = 1;
+			initial_b_l_pos_x = 73;
+			initial_b_l_pos_y = 71;
 				end
 			T300 : 
 				begin 
 			flag_t_l_300_exist = 1;
 			b_override_motion_x = 1;
 			b_override_motion_y = 2;
+			initial_b_l_pos_x = 67;
+			initial_b_l_pos_y = 75;
 				end
 			T270 : 
 				begin 
 			flag_t_l_270_exist = 1;
 			b_override_motion_x = 0;
 			b_override_motion_y = 1;
+			initial_b_l_pos_x = 48;
+			initial_b_l_pos_y = 78;
 				end
 
 			default : ;

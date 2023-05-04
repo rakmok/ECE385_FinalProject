@@ -2069,3 +2069,45 @@ Info: Building ../usb_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
 [BSP build complete]
 [usb build complete]
+23:25:27 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:36:58 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:46:56 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:57:31 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:09:32 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:17:28 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:28:25 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
