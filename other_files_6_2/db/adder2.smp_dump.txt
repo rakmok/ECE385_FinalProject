@@ -1,4 +1,24 @@
 
+State Machine - |lab62|fullproject:fullproject|flag_b_r_gameendp2
+Name flag_b_r_gameendp2.0 
+flag_b_r_gameendp2.1 0 
+flag_b_r_gameendp2.0 1 
+
+State Machine - |lab62|fullproject:fullproject|flag_b_l_gameendp2
+Name flag_b_l_gameendp2.0 
+flag_b_l_gameendp2.1 0 
+flag_b_l_gameendp2.0 1 
+
+State Machine - |lab62|fullproject:fullproject|flag_b_r_gameendp1
+Name flag_b_r_gameendp1.0 
+flag_b_r_gameendp1.1 0 
+flag_b_r_gameendp1.0 1 
+
+State Machine - |lab62|fullproject:fullproject|flag_b_l_gameendp1
+Name flag_b_l_gameendp1.0 
+flag_b_l_gameendp1.1 0 
+flag_b_l_gameendp1.0 1 
+
 State Machine - |lab62|fullproject:fullproject|ISDU2:ISDU2|State
 Name State.T240 State.T225 State.T210 State.T90 State.T150 State.T135 State.T120 State.T180 State.T270 
 State.T180 0 0 0 0 0 0 0 0 0 

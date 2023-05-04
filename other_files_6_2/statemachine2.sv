@@ -28,7 +28,7 @@ end
 	begin 
 		// Default next state is staying at current state
 //		Next_state = State;
-		Next_state = T180;
+		Next_state = State;
 		// Default controls signal values
 flag_t_r_90_exist = 0;
 flag_t_r_120_exist = 0;

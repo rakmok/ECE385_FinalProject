@@ -29,7 +29,7 @@ end
 	begin 
 		// Default next state is staying at current state
 //		Next_state = State;
-		Next_state = T0;
+		Next_state = State;
 		// Default controls signal values
 flag_t_l_0_exist = 0;
 flag_t_l_30_exist = 0;
