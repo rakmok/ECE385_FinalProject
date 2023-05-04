@@ -28,7 +28,7 @@ end
 	begin 
 		// Default next state is staying at current state
 //		Next_state = State;
-		Next_state = State;
+		Next_state = T180;
 		// Default controls signal values
 flag_t_r_90_exist = 0;
 flag_t_r_120_exist = 0;
@@ -145,7 +145,7 @@ initial_b_r_pos_y = 420;
 				begin 
 			flag_t_r_90_exist = 1;
 			b_override_motion_x_r = 0;
-			b_override_motion_y_r = 10'h3FF;
+			b_override_motion_y_r = 10'h3FE;
 			initial_b_r_pos_x = 558;
 			initial_b_r_pos_y = 422;
 				end
@@ -176,7 +176,7 @@ initial_b_r_pos_y = 420;
 			T180 : 
 				begin 
 			flag_t_r_180_exist = 1;
-			b_override_motion_x_r = 10'h3FF;
+			b_override_motion_x_r = 10'h3FE;
 			b_override_motion_y_r = 0;
 			initial_b_r_pos_x = 510;
 			initial_b_r_pos_y = 420;
@@ -209,7 +209,7 @@ initial_b_r_pos_y = 420;
 				begin 
 			flag_t_r_270_exist = 1;
 			b_override_motion_x_r = 0;
-			b_override_motion_y_r = 1;
+			b_override_motion_y_r = 2;
 			initial_b_r_pos_x = 545;
 			initial_b_r_pos_y = 458;
 				end

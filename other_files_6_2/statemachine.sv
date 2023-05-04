@@ -29,7 +29,7 @@ end
 	begin 
 		// Default next state is staying at current state
 //		Next_state = State;
-		Next_state = State;
+		Next_state = T0;
 		// Default controls signal values
 flag_t_l_0_exist = 0;
 flag_t_l_30_exist = 0;
@@ -146,7 +146,7 @@ initial_b_l_pos_y = 40;
 				begin 
 			flag_t_l_90_exist = 1;
 			b_override_motion_x = 0;
-			b_override_motion_y = 10'h3FF;
+			b_override_motion_y = 10'h3FE;
 			initial_b_l_pos_x = 38;
 			initial_b_l_pos_y = 42;
 				end
@@ -177,7 +177,7 @@ initial_b_l_pos_y = 40;
 			T0 : 
 				begin 
 			flag_t_l_0_exist = 1;
-			b_override_motion_x = 1;
+			b_override_motion_x = 2;
 			b_override_motion_y = 0;
 			initial_b_l_pos_x = 85;
 			initial_b_l_pos_y = 40;
@@ -210,7 +210,7 @@ initial_b_l_pos_y = 40;
 				begin 
 			flag_t_l_270_exist = 1;
 			b_override_motion_x = 0;
-			b_override_motion_y = 1;
+			b_override_motion_y = 2;
 			initial_b_l_pos_x = 48;
 			initial_b_l_pos_y = 78;
 				end

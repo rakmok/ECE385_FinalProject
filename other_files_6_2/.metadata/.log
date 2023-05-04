@@ -5492,3 +5492,9 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY com.altera.sbtgui.launch 1 0 2023-05-04 16:59:05.558
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-04 17:30:20.743
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-04 17:30:22.713
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
