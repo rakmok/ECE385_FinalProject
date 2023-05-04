@@ -5164,3 +5164,45 @@ java.lang.Exception: Connected system ID hash not found on target at expected ba
 
 !ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 21:12:28.699
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 21:34:14.063
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 21:34:15.979
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 21:57:43.361
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 21:57:45.301
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:07:11.754
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:07:13.683
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:11:07.024
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:11:08.951
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:21:55.369
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:21:57.294
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:40:17.366
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:40:19.254
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:55:31.105
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x58 --id=0x0 --timestamp=1682368792]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2023-05-03 22:55:33.093
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x58 --id=0x0 --timestamp=1682368792 /cygdrive/c/Users/harig/OneDrive/Documents/385/final/ECE385_FinalProject/other_files_6_2/software/usb/usb.elf]
